@@ -298,6 +298,17 @@ section h3 {
     color: var(--text-primary);
 }
 
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* ============================================
    DISCLAIMER
    ============================================ */
@@ -318,6 +329,9 @@ section h3 {
     font-size: 1.1rem;
     margin-bottom: var(--spacing-sm);
     text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .disclaimer strong {
@@ -381,6 +395,14 @@ section h3 {
 .concept-card p {
     color: var(--text-secondary);
     line-height: 1.8;
+    margin-bottom: var(--spacing-xs);
+}
+
+.concept-reference {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--accent-primary);
+    margin-top: var(--spacing-sm);
 }
 
 /* ============================================
@@ -432,32 +454,34 @@ section h3 {
 .axiom-content p {
     color: var(--text-secondary);
     line-height: 1.8;
+    margin-bottom: var(--spacing-xs);
+}
+
+.axiom-implication {
+    font-size: 0.95rem;
+    color: var(--accent-secondary);
+    font-style: italic;
+    margin-top: var(--spacing-xs);
+    padding-left: var(--spacing-sm);
+    border-left: 2px solid var(--accent-secondary);
 }
 
 /* ============================================
-   PRACTICES
+   QUESTIONS
    ============================================ */
 
-.practices {
+.questions {
     background: var(--bg-primary);
 }
 
-.section-intro {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-lg);
-    font-style: italic;
-}
-
-.practice-grid {
+.question-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }
 
-.practice-card {
+.question-card {
     background: var(--bg-secondary);
     padding: var(--spacing-md);
     border-radius: var(--radius-lg);
@@ -465,60 +489,53 @@ section h3 {
     transition: all var(--transition-medium);
 }
 
-.practice-card:hover {
+.question-card:hover {
     box-shadow: var(--shadow-md);
+    border-color: var(--accent-primary);
 }
 
-.practice-card h3 {
+.question-icon {
+    font-size: 3rem;
     margin-bottom: var(--spacing-sm);
-    font-size: 1.4rem;
+    text-align: center;
 }
 
-.practice-steps {
-    margin: var(--spacing-sm) 0;
+.question-card h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.3rem;
+    text-align: center;
 }
 
-.practice-steps p {
-    margin-bottom: var(--spacing-xs);
-    font-weight: 600;
-    color: var(--accent-primary);
-}
-
-.practice-steps ol {
-    margin-left: var(--spacing-md);
+.question-content {
     color: var(--text-secondary);
 }
 
-.practice-steps li {
-    margin-bottom: var(--spacing-xs);
+.question-content > p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.05rem;
     line-height: 1.8;
 }
 
-.warning-box {
+.perspectives {
     margin-top: var(--spacing-sm);
     padding: var(--spacing-sm);
-    background: rgba(255, 193, 7, 0.1);
-    border-left: 4px solid #ffc107;
-    border-radius: var(--radius-sm);
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-}
-
-.philosophy-note {
-    grid-column: 1 / -1;
     background: var(--bg-tertiary);
-    border: 2px solid var(--accent-secondary);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--accent-secondary);
 }
 
-.philosophy-note ul {
-    margin-left: var(--spacing-md);
-    margin-top: var(--spacing-sm);
-    color: var(--text-secondary);
-}
-
-.philosophy-note li {
+.perspectives p {
     margin-bottom: var(--spacing-xs);
-    line-height: 1.8;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.perspectives p:last-child {
+    margin-bottom: 0;
+}
+
+.perspectives strong {
+    color: var(--accent-primary);
 }
 
 /* ============================================
@@ -551,11 +568,30 @@ section h3 {
 .philosophy-section ul {
     margin-left: var(--spacing-md);
     color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
 }
 
 .philosophy-section li {
     margin-bottom: var(--spacing-xs);
     line-height: 1.8;
+}
+
+.philosophy-quote {
+    font-style: italic;
+    padding: var(--spacing-sm);
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--accent-primary);
+    margin-top: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+}
+
+.warning-text {
+    color: #dc3545;
+    font-weight: 600;
+    padding: var(--spacing-sm);
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: var(--radius-sm);
+    margin-top: var(--spacing-sm);
 }
 
 /* ============================================
@@ -618,7 +654,7 @@ section h3 {
 .final-note {
     font-size: 1.1rem;
     line-height: 1.9;
-    margin-top: var(--spacing-lg);
+    margin-top: var(--spacing-md);
     padding: var(--spacing-md);
     background: rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-lg);
@@ -637,11 +673,14 @@ section h3 {
     font-size: 1.1rem;
     color: var(--text-secondary);
     margin-bottom: var(--spacing-lg);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .warning-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }
@@ -683,6 +722,9 @@ section h3 {
     font-size: 1.2rem;
     margin-bottom: var(--spacing-lg);
     color: var(--text-secondary);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contribute-methods {
@@ -720,6 +762,7 @@ section h3 {
 .github-link {
     text-align: center;
     margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .btn-primary {
@@ -738,6 +781,25 @@ section h3 {
 .btn-primary:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+}
+
+.versioning {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--accent-primary);
+    text-align: center;
+}
+
+.versioning p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.7;
+}
+
+.versioning p:last-child {
+    margin-bottom: 0;
 }
 
 /* ============================================
@@ -792,6 +854,15 @@ section h3 {
     font-size: 0.9rem;
 }
 
+.footer-bottom p {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-meta {
+    font-style: italic;
+    opacity: 0.8;
+}
+
 /* ============================================
    RESPONSIVE
    ============================================ */
@@ -806,7 +877,7 @@ section h3 {
     }
     
     .concept-grid,
-    .practice-grid,
+    .question-grid,
     .warning-grid,
     .contribute-methods {
         grid-template-columns: 1fr;
@@ -823,6 +894,10 @@ section h3 {
     
     .hero h1 {
         font-size: 3rem;
+    }
+
+    .question-card h3 {
+        font-size: 1.2rem;
     }
 }
 

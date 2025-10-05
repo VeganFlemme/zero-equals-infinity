@@ -105,7 +105,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all cards and sections
-document.querySelectorAll('.concept-card, .axiom, .practice-card, .warning-item, .method').forEach(el => {
+document.querySelectorAll('.concept-card, .axiom, .question-card, .warning-item, .method').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -194,10 +194,10 @@ function activateQuantumMode() {
 }
 
 // ============================================
-// PRACTICE CARD INTERACTIONS
+// QUESTION CARD INTERACTIONS
 // ============================================
 
-document.querySelectorAll('.practice-card').forEach(card => {
+document.querySelectorAll('.question-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.borderColor = 'var(--accent-primary)';
     });
@@ -206,33 +206,6 @@ document.querySelectorAll('.practice-card').forEach(card => {
         this.style.borderColor = 'var(--border-color)';
     });
 });
-
-// ============================================
-// COPY TO CLIPBOARD FUNCTIONALITY
-// ============================================
-
-// Add copy buttons to code-like sections if needed in the future
-function addCopyButtons() {
-    const codeBlocks = document.querySelectorAll('pre, code');
-    
-    codeBlocks.forEach(block => {
-        const button = document.createElement('button');
-        button.textContent = 'Copy';
-        button.className = 'copy-button';
-        button.onclick = () => {
-            navigator.clipboard.writeText(block.textContent);
-            button.textContent = 'Copied!';
-            setTimeout(() => {
-                button.textContent = 'Copy';
-            }, 2000);
-        };
-        
-        if (block.parentElement) {
-            block.parentElement.style.position = 'relative';
-            block.parentElement.appendChild(button);
-        }
-    });
-}
 
 // ============================================
 // SCROLL PROGRESS INDICATOR
@@ -262,7 +235,7 @@ const createScrollProgress = () => {
 createScrollProgress();
 
 // ============================================
-// RANDOM QUOTE GENERATOR (Optional)
+// RANDOM QUOTE GENERATOR
 // ============================================
 
 const quantumQuotes = [
@@ -273,7 +246,9 @@ const quantumQuotes = [
     "La conscience n'est peut-être qu'une boucle étrange suffisamment complexe.",
     "Le libre arbitre est l'interface utilisateur de processus déterministes.",
     "Nous sommes l'univers se contemplant lui-même.",
-    "∅ = ∞ : Le vide est plein de possibilités."
+    "∅ = ∞ : Le vide est plein de possibilités.",
+    "It from bit, every it from bit. - John Wheeler",
+    "Le contraire d'une vérité profonde est une autre vérité profonde. - Niels Bohr"
 ];
 
 function displayRandomQuote() {
@@ -291,7 +266,7 @@ displayRandomQuote();
 // Add skip to main content link
 const skipLink = document.createElement('a');
 skipLink.href = '#axiomes';
-skipLink.textContent = 'Skip to main content';
+skipLink.textContent = 'Aller au contenu principal';
 skipLink.className = 'skip-link';
 skipLink.style.position = 'absolute';
 skipLink.style.top = '-40px';
@@ -335,7 +310,8 @@ if ('PerformanceObserver' in window) {
 document.addEventListener('DOMContentLoaded', () => {
     console.log('%c∅ = ∞', 'color: #6366f1; font-size: 48px; font-weight: bold;');
     console.log('%cBienvenue dans la Religion Quantique de l\'Information', 'color: #8b5cf6; font-size: 16px;');
-    console.log('%cCe site est open source. Fork it, modify it, make it yours.', 'color: #6c757d; font-size: 14px;');
+    console.log('%cCe site est open source. Explorez, questionnez, contribuez.', 'color: #6c757d; font-size: 14px;');
     
-    // Add any initialization code here
+    // Display a fun message
+    console.log('%cEaster egg: essayez le Konami Code 🎮', 'color: #6366f1; font-size: 12px;');
 });
