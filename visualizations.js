@@ -1,6 +1,9 @@
 // ============================================
-// CANVAS UTILITIES
+// MOBILE DETECTION & UTILITIES
 // ============================================
+
+const isMobile = () => window.innerWidth <= 768;
+const isSmallMobile = () => window.innerWidth <= 480;
 
 function getCanvasContext(canvasId) {
     const canvas = document.getElementById(canvasId);
@@ -10,13 +13,18 @@ function getCanvasContext(canvasId) {
     // High DPI support
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    ctx.scale(dpr, dpr);
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
     
-    return { canvas, ctx, width: rect.width, height: rect.height };
+    // Limit canvas size on mobile for performance
+    const maxWidth = isMobile() ? Math.min(rect.width, 600) : rect.width;
+    const maxHeight = isMobile() ? Math.min(rect.height, 400) : rect.height;
+    
+    canvas.width = maxWidth * dpr;
+    canvas.height = maxHeight * dpr;
+    ctx.scale(dpr, dpr);
+    canvas.style.width = maxWidth + 'px';
+    canvas.style.height = maxHeight + 'px';
+    
+    return { canvas, ctx, width: maxWidth, height: maxHeight };
 }
 
 function getThemeColors() {
@@ -30,6 +38,13 @@ function getThemeColors() {
     };
 }
 
+// Mobile-optimized font sizes
+function getFontSize(base) {
+    if (isSmallMobile()) return Math.max(base * 0.7, 10);
+    if (isMobile()) return Math.max(base * 0.85, 12);
+    return base;
+}
+
 // ============================================
 // HERO CANVAS ANIMATION
 // ============================================
@@ -40,6 +55,7 @@ function initHeroCanvas() {
     
     const { ctx, width, height } = canvasData;
     const particles = [];
+    const particleCount = isMobile() ? 25 : 50; // Reduce particles on mobile
     
     class Particle {
         constructor() {
@@ -71,7 +87,7 @@ function initHeroCanvas() {
         }
     }
     
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
     }
     
@@ -83,23 +99,25 @@ function initHeroCanvas() {
             particle.draw();
         });
         
-        // Draw connections
-        particles.forEach((p1, i) => {
-            particles.slice(i + 1).forEach(p2 => {
-                const dx = p1.x - p2.x;
-                const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                
-                if (dist < 100) {
-                    ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - dist / 100)})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.stroke();
-                }
+        // Draw connections (only on desktop for performance)
+        if (!isMobile()) {
+            particles.forEach((p1, i) => {
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - dist / 100)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                });
             });
-        });
+        }
         
         requestAnimationFrame(animate);
     }
@@ -116,7 +134,7 @@ function initSuperposition() {
     if (!canvasData) return;
     
     const { ctx, width, height } = canvasData;
-    let state = 'superposition'; // 'superposition', 'zero', 'one'
+    let state = 'superposition';
     let animProgress = 0;
     
     function draw() {
@@ -126,31 +144,33 @@ function initSuperposition() {
         
         const centerX = width / 2;
         const centerY = height / 2;
-        const radius = 80;
+        const radius = isMobile() ? 50 : 80;
         
         if (state === 'superposition') {
-            // Draw fuzzy superposition
-            for (let i = 0; i < 30; i++) {
-                const angle = (animProgress + i / 30) * Math.PI * 2;
-                const x = centerX + Math.cos(angle) * (radius + Math.sin(Date.now() / 500 + i) * 20);
-                const y = centerY + Math.sin(angle) * (radius + Math.cos(Date.now() / 500 + i) * 20);
+            // Simplified animation on mobile
+            const points = isMobile() ? 15 : 30;
+            for (let i = 0; i < points; i++) {
+                const angle = (animProgress + i / points) * Math.PI * 2;
+                const offset = isMobile() ? 15 : 20;
+                const x = centerX + Math.cos(angle) * (radius + Math.sin(Date.now() / 500 + i) * offset);
+                const y = centerY + Math.sin(angle) * (radius + Math.cos(Date.now() / 500 + i) * offset);
                 
                 ctx.beginPath();
-                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.arc(x, y, isMobile() ? 3 : 5, 0, Math.PI * 2);
                 ctx.fillStyle = `${colors.primary}66`;
                 ctx.fill();
             }
             
-            // Label
-            ctx.font = 'bold 24px sans-serif';
+            // Label - Mobile optimized
+            ctx.font = `bold ${getFontSize(24)}px sans-serif`;
             ctx.fillStyle = colors.text;
             ctx.textAlign = 'center';
-            ctx.fillText('|ψ⟩ = α|0⟩ + β|1⟩', centerX, height - 50);
+            ctx.fillText('|ψ⟩ = α|0⟩ + β|1⟩', centerX, height - (isMobile() ? 30 : 50));
             
             animProgress += 0.01;
             requestAnimationFrame(draw);
         } else {
-            // Draw collapsed state
+            // Collapsed state
             const label = state === 'zero' ? '|0⟩' : '|1⟩';
             const color = state === 'zero' ? colors.primary : colors.secondary;
             
@@ -162,16 +182,16 @@ function initSuperposition() {
             ctx.lineWidth = 3;
             ctx.stroke();
             
-            ctx.font = 'bold 48px sans-serif';
+            ctx.font = `bold ${getFontSize(48)}px sans-serif`;
             ctx.fillStyle = color;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText(label, centerX, centerY);
             
-            ctx.font = 'bold 20px sans-serif';
+            ctx.font = `bold ${getFontSize(20)}px sans-serif`;
             ctx.fillStyle = colors.text;
             ctx.textBaseline = 'alphabetic';
-            ctx.fillText('État mesuré : ' + (state === 'zero' ? '0' : '1'), centerX, height - 50);
+            ctx.fillText('État mesuré : ' + (state === 'zero' ? '0' : '1'), centerX, height - (isMobile() ? 30 : 50));
         }
     }
     
@@ -209,23 +229,23 @@ function initMultiverse() {
         }
         
         split() {
-            if (this.level >= 4) return;
+            if (this.level >= (isMobile() ? 3 : 4)) return;
             
-            const spread = 100 / (this.level + 1);
-            const yOffset = 80;
+            const spread = isMobile() ? 60 / (this.level + 1) : 100 / (this.level + 1);
+            const yOffset = isMobile() ? 60 : 80;
             
             this.children.push(new TreeNode(this.x - spread, this.y + yOffset, this.level + 1));
             this.children.push(new TreeNode(this.x + spread, this.y + yOffset, this.level + 1));
         }
         
         draw(ctx, colors) {
-            // Draw connections to children
+            // Draw connections
             this.children.forEach(child => {
                 ctx.beginPath();
                 ctx.moveTo(this.x, this.y);
                 ctx.lineTo(child.x, child.y);
                 ctx.strokeStyle = colors.primary + '88';
-                ctx.lineWidth = 2;
+                ctx.lineWidth = isMobile() ? 1.5 : 2;
                 ctx.stroke();
                 
                 child.draw(ctx, colors);
@@ -233,13 +253,14 @@ function initMultiverse() {
             
             // Draw node
             ctx.beginPath();
-            ctx.arc(this.x, this.y, 6, 0, Math.PI * 2);
+            const nodeSize = isMobile() ? 4 : 6;
+            ctx.arc(this.x, this.y, nodeSize, 0, Math.PI * 2);
             ctx.fillStyle = this.children.length > 0 ? colors.secondary : colors.primary;
             ctx.fill();
         }
     }
     
-    let root = new TreeNode(width / 2, 50, 0);
+    let root = new TreeNode(width / 2, isMobile() ? 40 : 50, 0);
     let universeCount = 1;
     
     function drawTree() {
@@ -249,10 +270,11 @@ function initMultiverse() {
         
         root.draw(ctx, colors);
         
-        ctx.font = '14px sans-serif';
+        ctx.font = `${getFontSize(14)}px sans-serif`;
         ctx.fillStyle = colors.text;
         ctx.textAlign = 'center';
-        ctx.fillText('Choix quantique = Bifurcation réelle', width / 2, height - 20);
+        const labelY = height - (isMobile() ? 15 : 20);
+        ctx.fillText('Choix quantique = Bifurcation réelle', width / 2, labelY);
     }
     
     function countUniverses(node) {
@@ -274,7 +296,7 @@ function initMultiverse() {
     });
     
     document.getElementById('resetMultiverse').addEventListener('click', () => {
-        root = new TreeNode(width / 2, 50, 0);
+        root = new TreeNode(width / 2, isMobile() ? 40 : 50, 0);
         universeCount = 1;
         document.getElementById('universeCount').textContent = 'Univers: 1';
         drawTree();
@@ -309,50 +331,60 @@ function initEntropy() {
         const p = parseFloat(slider.value) / 100;
         const entropy = calculateEntropy(p);
         
-        // Draw bars
-        const barWidth = 150;
-        const barX = width / 2 - barWidth - 20;
-        const maxHeight = height - 100;
+        // Draw bars - mobile optimized
+        const barWidth = isMobile() ? 80 : 150;
+        const barX = width / 2 - barWidth - (isMobile() ? 10 : 20);
+        const maxHeight = height - (isMobile() ? 80 : 100);
         
         // p(0) bar
         ctx.fillStyle = colors.primary + 'AA';
-        ctx.fillRect(barX, height - 50 - p * maxHeight, barWidth, p * maxHeight);
+        const barY = height - (isMobile() ? 40 : 50) - p * maxHeight;
+        ctx.fillRect(barX, barY, barWidth, p * maxHeight);
         ctx.fillStyle = colors.text;
+        ctx.font = `${getFontSize(14)}px sans-serif`;
         ctx.textAlign = 'center';
-        ctx.fillText('p(0)', barX + barWidth / 2, height - 30);
-        ctx.fillText(p.toFixed(2), barX + barWidth / 2, height - 60 - p * maxHeight);
+        ctx.fillText('p(0)', barX + barWidth / 2, height - (isMobile() ? 25 : 30));
+        ctx.font = `bold ${getFontSize(16)}px sans-serif`;
+        const labelOffset = isMobile() ? 40 : 60;
+        ctx.fillText(p.toFixed(2), barX + barWidth / 2, height - labelOffset - p * maxHeight);
         
         // p(1) bar
         ctx.fillStyle = colors.secondary + 'AA';
-        ctx.fillRect(barX + barWidth + 40, height - 50 - (1-p) * maxHeight, barWidth, (1-p) * maxHeight);
+        const bar2X = barX + barWidth + (isMobile() ? 20 : 40);
+        const bar2Y = height - (isMobile() ? 40 : 50) - (1-p) * maxHeight;
+        ctx.fillRect(bar2X, bar2Y, barWidth, (1-p) * maxHeight);
         ctx.fillStyle = colors.text;
-        ctx.fillText('p(1)', barX + barWidth + 40 + barWidth / 2, height - 30);
-        ctx.fillText((1-p).toFixed(2), barX + barWidth + 40 + barWidth / 2, height - 60 - (1-p) * maxHeight);
+        ctx.font = `${getFontSize(14)}px sans-serif`;
+        ctx.fillText('p(1)', bar2X + barWidth / 2, height - (isMobile() ? 25 : 30));
+        ctx.font = `bold ${getFontSize(16)}px sans-serif`;
+        ctx.fillText((1-p).toFixed(2), bar2X + barWidth / 2, height - labelOffset - (1-p) * maxHeight);
         
-        // Entropy curve
-        ctx.beginPath();
-        for (let i = 0; i <= 100; i++) {
-            const x = (i / 100) * (width - 100) + 50;
-            const p_i = i / 100;
-            const h = calculateEntropy(p_i);
-            const y = height - 50 - (h * maxHeight);
+        // Entropy curve (only on non-mobile for clarity)
+        if (!isMobile()) {
+            ctx.beginPath();
+            for (let i = 0; i <= 100; i++) {
+                const x = (i / 100) * (width - 100) + 50;
+                const p_i = i / 100;
+                const h = calculateEntropy(p_i);
+                const y = height - 50 - (h * maxHeight);
+                
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = colors.textSecondary;
+            ctx.lineWidth = 2;
+            ctx.setLineDash([5, 5]);
+            ctx.stroke();
+            ctx.setLineDash([]);
             
-            if (i === 0) ctx.moveTo(x, y);
-            else ctx.lineTo(x, y);
+            // Mark current point
+            const currentX = p * (width - 100) + 50;
+            const currentY = height - 50 - (entropy * maxHeight);
+            ctx.beginPath();
+            ctx.arc(currentX, currentY, 6, 0, Math.PI * 2);
+            ctx.fillStyle = '#f59e0b';
+            ctx.fill();
         }
-        ctx.strokeStyle = colors.textSecondary;
-        ctx.lineWidth = 2;
-        ctx.setLineDash([5, 5]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        
-        // Mark current point
-        const currentX = p * (width - 100) + 50;
-        const currentY = height - 50 - (entropy * maxHeight);
-        ctx.beginPath();
-        ctx.arc(currentX, currentY, 6, 0, Math.PI * 2);
-        ctx.fillStyle = '#f59e0b';
-        ctx.fill();
         
         probValue.textContent = p.toFixed(2);
         entropyValue.textContent = `Entropie: ${entropy.toFixed(3)} bits`;
@@ -381,7 +413,7 @@ function initConsciousness() {
         ctx.fillRect(0, 0, width, height);
         
         const complexity = parseInt(slider.value);
-        const nodeCount = complexity * 10;
+        const nodeCount = complexity * (isMobile() ? 6 : 10);
         const centerX = width / 2;
         const centerY = height / 2;
         
@@ -389,19 +421,20 @@ function initConsciousness() {
         const nodes = [];
         for (let i = 0; i < nodeCount; i++) {
             const angle = (i / nodeCount) * Math.PI * 2;
-            const radius = 50 + complexity * 15;
+            const radius = (isMobile() ? 30 : 50) + complexity * (isMobile() ? 10 : 15);
             nodes.push({
                 x: centerX + Math.cos(angle) * radius,
                 y: centerY + Math.sin(angle) * radius
             });
         }
         
-        // Draw connections (more connections = higher complexity)
+        // Draw connections (reduced on mobile)
+        const connectionDensity = isMobile() ? complexity / 30 : complexity / 20;
         ctx.strokeStyle = colors.primary + '33';
         ctx.lineWidth = 0.5;
         for (let i = 0; i < nodeCount; i++) {
             for (let j = i + 1; j < nodeCount; j++) {
-                if (Math.random() < complexity / 20) {
+                if (Math.random() < connectionDensity) {
                     ctx.beginPath();
                     ctx.moveTo(nodes[i].x, nodes[i].y);
                     ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -411,16 +444,18 @@ function initConsciousness() {
         }
         
         // Draw nodes
+        const nodeSize = isMobile() ? 2.5 : 3;
         nodes.forEach(node => {
             ctx.beginPath();
-            ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
+            ctx.arc(node.x, node.y, nodeSize, 0, Math.PI * 2);
             ctx.fillStyle = colors.secondary;
             ctx.fill();
         });
         
-        // Central glow (consciousness)
-        const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 100 + complexity * 20);
-        gradient.addColorStop(0, colors.primary + Math.min(complexity * 15, 100).toString(16));
+        // Central glow
+        const glowRadius = (isMobile() ? 70 : 100) + complexity * (isMobile() ? 15 : 20);
+        const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, glowRadius);
+        gradient.addColorStop(0, colors.primary + Math.min(complexity * 15, 100).toString(16).padStart(2, '0'));
         gradient.addColorStop(1, colors.primary + '00');
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, width, height);
@@ -462,11 +497,11 @@ function initDeterminism() {
         }
         
         addCauses() {
-            if (this.level >= 4) return;
+            if (this.level >= (isMobile() ? 3 : 4)) return;
             
             const count = Math.floor(Math.random() * 2) + 2;
-            const spread = 120;
-            const yOffset = -80;
+            const spread = isMobile() ? 80 : 120;
+            const yOffset = isMobile() ? -60 : -80;
             
             for (let i = 0; i < count; i++) {
                 const x = this.x + (i - (count - 1) / 2) * spread / count;
@@ -483,7 +518,7 @@ function initDeterminism() {
                 ctx.moveTo(this.x, this.y);
                 ctx.lineTo(cause.x, cause.y);
                 ctx.strokeStyle = colors.primary + '66';
-                ctx.lineWidth = 2;
+                ctx.lineWidth = isMobile() ? 1.5 : 2;
                 ctx.stroke();
                 
                 if (cause.level <= maxDepth) {
@@ -493,19 +528,20 @@ function initDeterminism() {
             
             // Draw node
             ctx.beginPath();
-            ctx.arc(this.x, this.y, 8, 0, Math.PI * 2);
+            const nodeSize = isMobile() ? 6 : 8;
+            ctx.arc(this.x, this.y, nodeSize, 0, Math.PI * 2);
             ctx.fillStyle = this.level === 0 ? colors.secondary : colors.primary;
             ctx.fill();
             
-            // Label
-            ctx.font = '11px sans-serif';
+            // Label - mobile optimized
+            ctx.font = `${getFontSize(11)}px sans-serif`;
             ctx.fillStyle = colors.text;
             ctx.textAlign = 'center';
-            ctx.fillText(this.label, this.x, this.y + 25);
+            ctx.fillText(this.label, this.x, this.y + (isMobile() ? 20 : 25));
         }
     }
     
-    let root = new CausalNode(width / 2, height - 50, 0, 'Votre "Choix"');
+    let root = new CausalNode(width / 2, height - (isMobile() ? 40 : 50), 0, 'Votre "Choix"');
     
     function redraw() {
         const colors = getThemeColors();
@@ -514,10 +550,11 @@ function initDeterminism() {
         
         root.draw(ctx, colors, depth);
         
-        ctx.font = '13px sans-serif';
+        ctx.font = `${getFontSize(13)}px sans-serif`;
         ctx.fillStyle = colors.text;
         ctx.textAlign = 'center';
-        ctx.fillText('Chaque choix a des causes. Mais qui choisit les causes ?', width / 2, 25);
+        const text = isMobile() ? 'Chaque choix a des causes' : 'Chaque choix a des causes. Mais qui choisit les causes ?';
+        ctx.fillText(text, width / 2, isMobile() ? 20 : 25);
     }
     
     function expandTree(node) {
@@ -528,7 +565,8 @@ function initDeterminism() {
     }
     
     document.getElementById('traceBack').addEventListener('click', () => {
-        if (depth < 4) {
+        const maxDepth = isMobile() ? 3 : 4;
+        if (depth < maxDepth) {
             expandTree(root);
             depth++;
             document.getElementById('causalDepth').textContent = `Profondeur causale: ${depth}`;
@@ -537,7 +575,7 @@ function initDeterminism() {
     });
     
     document.getElementById('resetDeterminism').addEventListener('click', () => {
-        root = new CausalNode(width / 2, height - 50, 0, 'Votre "Choix"');
+        root = new CausalNode(width / 2, height - (isMobile() ? 40 : 50), 0, 'Votre "Choix"');
         depth = 0;
         document.getElementById('causalDepth').textContent = 'Profondeur causale: 0';
         redraw();
@@ -563,18 +601,19 @@ function initParadox() {
         
         const centerX = width / 2;
         const centerY = height / 2;
-        const radius = 150;
+        const radius = isMobile() ? 100 : 150;
         
         ctx.save();
         ctx.translate(centerX, centerY);
         ctx.rotate(rotation);
         
-        // Draw Ouroboros (snake eating its tail)
-        for (let i = 0; i < 360; i += 10) {
+        // Ouroboros - mobile optimized
+        const points = isMobile() ? 18 : 36;
+        for (let i = 0; i < 360; i += 360 / points) {
             const angle = (i * Math.PI) / 180;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
-            const size = 8 + Math.sin(rotation * 5 + angle) * 3;
+            const size = (isMobile() ? 6 : 8) + Math.sin(rotation * 5 + angle) * (isMobile() ? 2 : 3);
             
             const gradient = ctx.createRadialGradient(x, y, 0, x, y, size);
             gradient.addColorStop(0, '#818cf8');
@@ -629,21 +668,22 @@ function initSimulator() {
         const expType = document.getElementById('expType').value;
         const decoherence = parseInt(decoherenceSlider.value);
         
-        // Simple visualization based on type
-        ctx.font = 'bold 16px sans-serif';
+        // Title - mobile optimized
+        ctx.font = `bold ${getFontSize(16)}px sans-serif`;
         ctx.fillStyle = colors.text;
         ctx.textAlign = 'center';
         ctx.fillText(`Simulation: ${expType} (${numQubits} qubits)`, 300, 30);
         
-        // Draw animated quantum states
-        for (let i = 0; i < Math.pow(2, numQubits); i++) {
-            const angle = (i / Math.pow(2, numQubits)) * Math.PI * 2 + time;
-            const radius = 100 + Math.sin(time * 2) * 20;
+        // Animated quantum states - reduced complexity on mobile
+        const stateCount = isMobile() ? Math.pow(2, Math.min(numQubits, 3)) : Math.pow(2, numQubits);
+        for (let i = 0; i < stateCount; i++) {
+            const angle = (i / stateCount) * Math.PI * 2 + time;
+            const radius = (isMobile() ? 70 : 100) + Math.sin(time * 2) * (isMobile() ? 15 : 20);
             const x = 300 + Math.cos(angle) * radius;
             const y = 200 + Math.sin(angle) * radius;
             
             const coherence = 1 - (decoherence / 100);
-            const size = 5 + Math.sin(time * 3 + i) * 2 * coherence;
+            const size = (isMobile() ? 3 : 5) + Math.sin(time * 3 + i) * 2 * coherence;
             
             ctx.beginPath();
             ctx.arc(x, y, size, 0, Math.PI * 2);
@@ -652,7 +692,7 @@ function initSimulator() {
         }
         
         time += 0.02;
-        statesExplored += Math.pow(2, numQubits);
+        statesExplored += stateCount;
         
         document.getElementById('statesExplored').textContent = statesExplored;
         document.getElementById('coherence').textContent = (100 - decoherence) + '%';
@@ -686,5 +726,14 @@ window.addEventListener('load', () => {
     initParadox();
     initSimulator();
     
-    console.log('%cVisualizations loaded successfully!', 'color: #10b981; font-weight: bold;');
+    console.log('%cVisualizations loaded! Mobile optimized.', 'color: #10b981; font-weight: bold;');
+});
+
+// Re-initialize on window resize (for orientation changes)
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        location.reload(); // Simple approach for mobile orientation changes
+    }, 500);
 });

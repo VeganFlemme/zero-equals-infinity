@@ -40,8 +40,8 @@ Nous acceptons plusieurs types de contributions :
 ```bash
 # Cliquez sur "Fork" en haut à droite sur GitHub
 # Puis clonez votre fork
-git clone https://github.com/votre-username/quantum-religion.git
-cd quantum-religion
+git clone https://github.com/VeganFlemme/zero-equals-infinity.git
+cd zero-equals-infinity
 ```
 
 ### Étape 2 : Créez une Branche

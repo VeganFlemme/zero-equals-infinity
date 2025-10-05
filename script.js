@@ -222,7 +222,7 @@ document.body.insertBefore(skipLink, document.body.firstChild);
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('%c∅ = ∞ v2.0', 'color: #6366f1; font-size: 48px; font-weight: bold;');
-    console.log('%cVisual isations Interactives', 'color: #8b5cf6; font-size: 16px;');
+    console.log('%cVisualisations Interactives', 'color: #8b5cf6; font-size: 16px;');
     console.log('%cExplorez les concepts quantiques visuellement', 'color: #6c757d; font-size: 14px;');
     console.log('%cEaster egg: Konami Code 🎮', 'color: #6366f1; font-size: 12px;');
 });

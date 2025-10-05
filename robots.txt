@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://votre-domaine.com/sitemap.xml
+Sitemap: https://zero-equals-infinity.vercel.app/sitemap.xml

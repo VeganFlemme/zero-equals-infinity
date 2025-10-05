@@ -2,13 +2,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="description" content="Expérience philosophique interactive explorant physique quantique, théorie de l'information et conscience">
     <meta name="keywords" content="physique quantique, information, conscience, philosophie, IA, déterminisme, visualisations">
     <meta name="author" content="Quantum Religion Contributors">
     <meta property="og:title" content="∅ = ∞ | Religion Quantique v2.0 - Visualisations Interactives">
     <meta property="og:description" content="Explorez visuellement les concepts de physique quantique, conscience et information">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zero-equals-infinity.vercel.app">
     <title>∅ = ∞ | Religion Quantique v2.0 - Visualisations Interactives</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
@@ -24,13 +25,13 @@
             <a href="#simulateur">Simulateur</a>
             <a href="#contribuer">Contribuer</a>
         </div>
-        <button class="theme-toggle" id="themeToggle">◐</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">◐</button>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero">
         <div class="quantum-bg" id="quantumBg"></div>
-        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
         <div class="hero-content">
             <h1 class="glitch" data-text="∅ = ∞">∅ = ∞</h1>
             <h2>La Religion Quantique de l'Information</h2>
@@ -39,7 +40,7 @@
                 🎨 NOUVELLE VERSION : Explorez les concepts visuellement
             </div>
         </div>
-        <div class="scroll-indicator">↓</div>
+        <div class="scroll-indicator" aria-hidden="true">↓</div>
     </header>
 
     <!-- Disclaimer -->
@@ -65,7 +66,7 @@
                     <p class="viz-description">Un qubit existe dans tous les états simultanément jusqu'à la mesure</p>
                 </div>
                 <div class="viz-container">
-                    <canvas id="superpositionCanvas" width="800" height="400"></canvas>
+                    <canvas id="superpositionCanvas" width="800" height="400" aria-label="Visualisation de la superposition quantique"></canvas>
                     <div class="viz-controls">
                         <button class="btn-viz" id="measureBtn">📏 Mesurer</button>
                         <button class="btn-viz" id="resetSuperposition">🔄 Reset</button>
@@ -87,7 +88,7 @@
                     <p class="viz-description">Chaque choix crée une bifurcation réelle dans l'arbre du multivers</p>
                 </div>
                 <div class="viz-container">
-                    <canvas id="multiverseCanvas" width="800" height="500"></canvas>
+                    <canvas id="multiverseCanvas" width="800" height="500" aria-label="Visualisation du multivers"></canvas>
                     <div class="viz-controls">
                         <button class="btn-viz" id="addChoice">➕ Faire un Choix</button>
                         <button class="btn-viz" id="resetMultiverse">🔄 Reset</button>
@@ -109,10 +110,10 @@
                     <p class="viz-description">L'entropie mesure l'incertitude - plus d'entropie = plus d'information potentielle</p>
                 </div>
                 <div class="viz-container">
-                    <canvas id="entropyCanvas" width="800" height="400"></canvas>
+                    <canvas id="entropyCanvas" width="800" height="400" aria-label="Visualisation de l'entropie"></canvas>
                     <div class="viz-controls">
-                        <label>Probabilité p(0): <span id="probValue">0.5</span></label>
-                        <input type="range" id="probSlider" min="0" max="100" value="50">
+                        <label for="probSlider">Probabilité p(0): <span id="probValue">0.5</span></label>
+                        <input type="range" id="probSlider" min="0" max="100" value="50" aria-label="Curseur de probabilité">
                         <div class="viz-info">
                             <span id="entropyValue">Entropie: 1.000 bits</span>
                         </div>
@@ -131,10 +132,10 @@
                     <p class="viz-description">La conscience émerge-t-elle de la complexité ou est-elle fondamentale ?</p>
                 </div>
                 <div class="viz-container">
-                    <canvas id="consciousnessCanvas" width="800" height="400"></canvas>
+                    <canvas id="consciousnessCanvas" width="800" height="400" aria-label="Visualisation de la conscience"></canvas>
                     <div class="viz-controls">
-                        <label>Complexité: <span id="complexityValue">5</span></label>
-                        <input type="range" id="complexitySlider" min="1" max="10" value="5">
+                        <label for="complexitySlider">Complexité: <span id="complexityValue">5</span></label>
+                        <input type="range" id="complexitySlider" min="1" max="10" value="5" aria-label="Curseur de complexité">
                         <div class="viz-info">
                             <span id="consciousnessLevel">Niveau de conscience: ?</span>
                         </div>
@@ -154,7 +155,7 @@
                     <p class="viz-description">Chaque événement est déterminé par une chaîne causale complexe</p>
                 </div>
                 <div class="viz-container">
-                    <canvas id="determinismCanvas" width="800" height="400"></canvas>
+                    <canvas id="determinismCanvas" width="800" height="400" aria-label="Visualisation du déterminisme"></canvas>
                     <div class="viz-controls">
                         <button class="btn-viz" id="traceBack">⏮️ Tracer les Causes</button>
                         <button class="btn-viz" id="resetDeterminism">🔄 Reset</button>
@@ -287,7 +288,7 @@
                     <div class="concept-icon-large">Φ</div>
                     <h3>Théorie de l'Information Intégrée (IIT)</h3>
                     <div class="concept-content">
-                        <p>Giulio Tononi propose que la conscience est l'intégration d'information (Φ). Plus un système intègre d'information, plus il est conscient.</p>
+                        <p>Giulio Tononi propose que la conscience est l'intégration d'information (Φ). Plus un système intègre d'info, plus il est conscient.</p>
                         <div class="concept-details">
                             <h4>Axiomes :</h4>
                             <ul>
@@ -368,11 +369,11 @@
                     <h3>Configuration</h3>
                     <div class="simulator-controls">
                         <div class="control-group">
-                            <label>Nombre de qubits:</label>
+                            <label for="numQubits">Nombre de qubits:</label>
                             <input type="number" id="numQubits" min="1" max="5" value="2">
                         </div>
                         <div class="control-group">
-                            <label>Type d'expérience:</label>
+                            <label for="expType">Type d'expérience:</label>
                             <select id="expType">
                                 <option value="superposition">Superposition</option>
                                 <option value="entanglement">Intrication</option>
@@ -380,8 +381,8 @@
                             </select>
                         </div>
                         <div class="control-group">
-                            <label>Taux de décohérence:</label>
-                            <input type="range" id="decoherence" min="0" max="100" value="10">
+                            <label for="decoherence">Taux de décohérence:</label>
+                            <input type="range" id="decoherence" min="0" max="100" value="10" aria-label="Curseur de décohérence">
                             <span id="decoherenceValue">10%</span>
                         </div>
                         <button class="btn-primary" id="runSimulation">▶️ Lancer Simulation</button>
@@ -389,7 +390,7 @@
                     </div>
                 </div>
                 <div class="simulator-display">
-                    <canvas id="simulatorCanvas" width="600" height="400"></canvas>
+                    <canvas id="simulatorCanvas" width="600" height="400" aria-label="Simulateur quantique"></canvas>
                     <div class="simulator-stats">
                         <div class="stat">États explorés: <span id="statesExplored">0</span></div>
                         <div class="stat">Cohérence: <span id="coherence">100%</span></div>
@@ -412,7 +413,7 @@
             <h2>Le Paradoxe Auto-Référentiel v2.0</h2>
             <div class="paradox-content">
                 <div class="paradox-visual">
-                    <canvas id="paradoxCanvas" width="400" height="400"></canvas>
+                    <canvas id="paradoxCanvas" width="400" height="400" aria-label="Ouroboros - Paradoxe auto-référentiel"></canvas>
                 </div>
                 <p class="paradox-statement">
                     Cette "religion" utilise la raison pour argumenter que :<br>
@@ -485,8 +486,8 @@
             </div>
 
             <div class="github-link">
-                <a href="https://github.com/votre-username/quantum-religion" class="btn-primary" target="_blank">
-                    Voir sur GitHub
+                <a href="https://github.com/VeganFlemme/zero-equals-infinity" class="btn-primary" target="_blank" rel="noopener">
+                    ⭐ Voir sur GitHub
                 </a>
             </div>
         </div>
@@ -512,9 +513,10 @@
                 <div class="footer-section">
                     <h4>Ressources</h4>
                     <ul>
-                        <li><a href="https://plato.stanford.edu/" target="_blank">Stanford Encyclopedia</a></li>
-                        <li><a href="https://arxiv.org/" target="_blank">arXiv</a></li>
-                        <li><a href="https://www.quantamagazine.org/" target="_blank">Quanta Magazine</a></li>
+                        <li><a href="https://plato.stanford.edu/" target="_blank" rel="noopener">Stanford Encyclopedia</a></li>
+                        <li><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a></li>
+                        <li><a href="https://www.quantamagazine.org/" target="_blank" rel="noopener">Quanta Magazine</a></li>
+                        <li><a href="https://github.com/VeganFlemme/zero-equals-infinity" target="_blank" rel="noopener">GitHub Repo</a></li>
                     </ul>
                 </div>
             </div>

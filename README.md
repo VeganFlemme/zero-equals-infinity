@@ -1,9 +1,11 @@
 # ∅ = ∞ | Religion Quantique v2.0 - Visualisations Interactives
 
-[![Version](https://img.shields.io/badge/version-2.0-purple.svg)](https://github.com)
+[![Version](https://img.shields.io/badge/version-2.0-purple.svg)](https://github.com/VeganFlemme/zero-equals-infinity)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 > Expérience philosophique interactive explorant physique quantique, théorie de l'information et conscience à travers des visualisations immersives.
+
+🌐 **[Voir le site en ligne](https://zero-equals-infinity.vercel.app)**
 
 ## 🎨 Nouveautés v2.0
 
@@ -27,7 +29,7 @@
 - ✨ 5 visualisations Canvas interactives temps réel
 - 🧮 Simulateur quantique configurable
 - 🌓 Mode sombre/clair avec persistance
-- 📱 Entièrement responsive
+- 📱 Entièrement responsive (optimisé mobile)
 - ♿ Accessible (WCAG 2.1 AA)
 - ⚡ Vanilla JavaScript (0 dépendances)
 - 🎨 Animations fluides 60 FPS
@@ -121,7 +123,7 @@ Comment l'objectivité émerge de la décohérence quantique.
 ## 🛠️ Structure Technique
 
 ```
-quantum-religion-v2/
+zero-equals-infinity/
 │
 ├── index.html              # Structure HTML v2.0
 ├── styles.css              # Design + styles visualisations
@@ -240,6 +242,7 @@ Libre d'utiliser, modifier, distribuer.
 
 ## 💬 Contact
 
+- **GitHub**: [https://github.com/VeganFlemme/zero-equals-infinity](https://github.com/VeganFlemme/zero-equals-infinity)
 - **Issues**: Bugs et suggestions
 - **Discussions**: Débats philosophiques
 - **PRs**: Contributions code/contenu
