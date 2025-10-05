@@ -75,7 +75,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.viz-card, .axiom, .concept-advanced-card, .roadmap-item').forEach(el => {
+document.querySelectorAll('.viz-card, .experiment-card, .axiom-compact, .timeline-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -110,7 +110,7 @@ const createScrollProgress = () => {
 createScrollProgress();
 
 // ============================================
-// EASTER EGG: KONAMI CODE
+// KONAMI CODE (Original Easter Egg)
 // ============================================
 
 let konamiCode = [];
@@ -129,7 +129,7 @@ function activateQuantumMode() {
     document.body.style.animation = 'quantumPulse 0.5s ease-in-out 5';
     
     const message = document.createElement('div');
-    message.textContent = '∅ = ∞ | QUANTUM MODE v2.0 ACTIVATED';
+    message.textContent = '∅ = ∞ | QUANTUM MODE v3.0 ACTIVATED';
     message.style.position = 'fixed';
     message.style.top = '50%';
     message.style.left = '50%';
@@ -194,8 +194,8 @@ displayRandomQuote();
 // ============================================
 
 const skipLink = document.createElement('a');
-skipLink.href = '#visualisations';
-skipLink.textContent = 'Aller aux visualisations';
+skipLink.href = '#experiences';
+skipLink.textContent = 'Aller aux expériences';
 skipLink.className = 'skip-link';
 skipLink.style.position = 'absolute';
 skipLink.style.top = '-40px';
@@ -217,12 +217,62 @@ skipLink.addEventListener('blur', () => {
 document.body.insertBefore(skipLink, document.body.firstChild);
 
 // ============================================
+// UTILITY FUNCTIONS FOR OTHER SCRIPTS
+// ============================================
+
+function getCanvasContext(canvasId) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return null;
+    const ctx = canvas.getContext('2d');
+    
+    // High DPI support
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    
+    // Limit canvas size on mobile for performance
+    const maxWidth = isMobile() ? Math.min(rect.width, 600) : rect.width;
+    const maxHeight = isMobile() ? Math.min(rect.height, 400) : rect.height;
+    
+    canvas.width = maxWidth * dpr;
+    canvas.height = maxHeight * dpr;
+    ctx.scale(dpr, dpr);
+    canvas.style.width = maxWidth + 'px';
+    canvas.style.height = maxHeight + 'px';
+    
+    return { canvas, ctx, width: maxWidth, height: maxHeight };
+}
+
+function getThemeColors() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return {
+        bg: isDark ? '#1a1a1a' : '#e9ecef',
+        primary: isDark ? '#818cf8' : '#6366f1',
+        secondary: isDark ? '#a78bfa' : '#8b5cf6',
+        accent: isDark ? '#f472b6' : '#ec4899',
+        text: isDark ? '#f0f0f0' : '#1a1a1a',
+        textSecondary: isDark ? '#a0a0a0' : '#6c757d',
+        danger: isDark ? '#f87171' : '#ef4444'
+    };
+}
+
+// Mobile detection
+const isMobile = () => window.innerWidth <= 768;
+const isSmallMobile = () => window.innerWidth <= 480;
+
+// Mobile-optimized font sizes
+function getFontSize(base) {
+    if (isSmallMobile()) return Math.max(base * 0.7, 10);
+    if (isMobile()) return Math.max(base * 0.85, 12);
+    return base;
+}
+
+// ============================================
 // INITIALIZE
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('%c∅ = ∞ v2.0', 'color: #6366f1; font-size: 48px; font-weight: bold;');
-    console.log('%cVisualisations Interactives', 'color: #8b5cf6; font-size: 16px;');
-    console.log('%cExplorez les concepts quantiques visuellement', 'color: #6c757d; font-size: 14px;');
-    console.log('%cEaster egg: Konami Code 🎮', 'color: #6366f1; font-size: 12px;');
+    console.log('%c∅ = ∞ v3.0', 'color: #6366f1; font-size: 48px; font-weight: bold;');
+    console.log('%cExpériences Mentales Interactives', 'color: #8b5cf6; font-size: 16px;');
+    console.log('%cChat de Schrödinger • EPR/Bell • Wigner • Chambre Chinoise', 'color: #6c757d; font-size: 14px;');
+    console.log('%cGraphe 3D • Pensées Collectives • Easter Eggs Avancés', 'color: #6c757d; font-size: 14px;');
 });
