@@ -1,255 +1,259 @@
-# ∅ = ∞ | La Religion Quantique de l'Information
+# ∅ = ∞ | Religion Quantique v2.0 - Visualisations Interactives
 
+[![Version](https://img.shields.io/badge/version-2.0-purple.svg)](https://github.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0-purple.svg)](https://github.com)
 
-> Expérience philosophique explorant physique quantique, théorie de l'information et conscience.
+> Expérience philosophique interactive explorant physique quantique, théorie de l'information et conscience à travers des visualisations immersives.
 
-## 🎭 Nature du Projet
+## 🎨 Nouveautés v2.0
 
-**Ce projet est une œuvre d'art conceptuelle et une exploration philosophique.**
+### **5 Visualisations Interactives Canvas**
 
-Ce n'est **PAS** :
-- Un mouvement religieux réel
-- Une organisation ou une secte
-- Un système de croyances dogmatique
-- Une invitation à des pratiques dangereuses
+1. **🌀 Superposition Quantique** - Observez l'effondrement de la fonction d'onde
+2. **🌳 Ramification du Multivers** - Créez votre propre arbre d'univers parallèles
+3. **📊 Entropie & Information** - Explorez la relation entre probabilité et information
+4. **🧠 Émergence de la Conscience** - Visualisez comment la complexité crée la conscience
+5. **🔗 Réseau Causal Déterministe** - Remontez la chaîne infinie des causes
 
-C'est une **expérience de pensée** qui utilise l'ironie, la provocation intellectuelle et la réflexion critique pour explorer des questions philosophiques sur :
-- La nature informationnelle de la réalité
-- Le problème de la conscience
-- Le déterminisme et le libre arbitre
-- L'intelligence artificielle et son impact sur notre compréhension de nous-mêmes
+### **Contenu Philosophique Affiné**
 
-## 🌌 Concept
-
-Ce site explore l'idée que l'univers pourrait être fondamentalement informationnel plutôt que matériel. Il mélange :
-
-- **Physique quantique** : Superposition, intrication, interprétation des mondes multiples (Everett)
-- **Théorie de l'information** : "It from bit" de John Wheeler, entropie informationnelle
-- **Philosophie de la conscience** : Le problème difficile (Chalmers), émergentisme vs panpsychisme
-- **Intelligence artificielle** : IA comme miroir des processus cognitifs
-- **Déterminisme** : Questions sur le libre arbitre et la responsabilité morale
+- ✨ Axiomes v2.0 avec nuances philosophiques explicites
+- 💭 6 concepts avancés détaillés (principe holographique, IIT, digital physics...)
+- 🎮 Simulateur quantique interactif
+- 🐍 Visualisation du paradoxe auto-référentiel (Ouroboros)
 
 ## 🚀 Fonctionnalités
 
-- ✨ Design moderne et minimaliste
+- ✨ 5 visualisations Canvas interactives temps réel
+- 🧮 Simulateur quantique configurable
 - 🌓 Mode sombre/clair avec persistance
-- 📱 Entièrement responsive (mobile, tablette, desktop)
+- 📱 Entièrement responsive
 - ♿ Accessible (WCAG 2.1 AA)
-- 🎨 Animations fluides et interactives
-- 🔍 SEO optimisé
-- ⚡ Performance optimale (vanilla JS, 0 dépendances)
-- 🎮 Easter eggs cachés
+- ⚡ Vanilla JavaScript (0 dépendances)
+- 🎨 Animations fluides 60 FPS
 
-## 🛠️ Technologies
+## 📦 Installation
 
-- **HTML5** : Structure sémantique
-- **CSS3** : Variables CSS, Grid, Flexbox, animations CSS
-- **Vanilla JavaScript** : Aucune dépendance externe
-- **Progressive Web App** ready
-
-## 📦 Installation & Déploiement
-
-### Option 1 : Téléchargement direct
+### Méthode Simple
 
 ```bash
-# Clonez le repository
-git clone https://github.com/votre-username/quantum-religion.git
-cd quantum-religion
-
+# Téléchargez le ZIP et extrayez
 # Ouvrez index.html dans votre navigateur
 ```
 
-### Option 2 : Serveur local
+### Serveur Local
 
 ```bash
-# Python 3
+# Python
 python -m http.server 8000
 
 # Node.js
 npx serve
 
-# PHP
+# PHP  
 php -S localhost:8000
 ```
 
-Puis ouvrez `http://localhost:8000`
+### Déploiement
 
-### Option 3 : Déploiement sur Vercel
-
+**Vercel:**
 ```bash
-npm i -g vercel
 vercel
 ```
 
-### Option 4 : Déploiement sur Netlify
-
+**Netlify:**
 ```bash
-npm i -g netlify-cli
 netlify deploy
 ```
 
-### Option 5 : GitHub Pages
-
-1. Poussez ce repo sur GitHub
+**GitHub Pages:**
+1. Push vers GitHub
 2. Settings > Pages
-3. Source : branche `main`, dossier `/` (root)
-4. Votre site sera disponible à `https://votre-username.github.io/quantum-religion`
+3. Source: `main` branch, `/` folder
 
-## 📁 Structure
+## 🎯 Utilisation des Visualisations
+
+### Superposition Quantique
+- Observez l'état de superposition
+- Cliquez "Mesurer" pour effondrer vers 0 ou 1
+- Reset pour revenir en superposition
+
+### Multivers
+- Cliquez "Faire un Choix" pour créer des bifurcations
+- Observez la croissance exponentielle des univers
+- Chaque branche est un univers réel selon Everett
+
+### Entropie
+- Bougez le slider de probabilité
+- Observez comment l'entropie est maximale à p=0.5
+- Maximum d'incertitude = maximum d'information
+
+### Conscience
+- Augmentez la complexité du réseau
+- Observez l'émergence d'intégration
+- Question : à quel seuil la conscience apparaît-elle ?
+
+### Déterminisme
+- Tracez les causes de vos "choix"
+- Remontez la chaîne causale
+- Question : où commence le "vous" qui choisit ?
+
+## 🧠 Concepts Avancés v2.0
+
+### Principe Holographique
+Notre univers 3D pourrait être encodé sur une surface 2D. Les dimensions sont peut-être émergentes.
+
+### It from Bit (Wheeler)
+Chaque "chose" (it) dérive de bits d'information. La matière EST information.
+
+### Théorie IIT (Tononi)
+La conscience = intégration d'information (Φ). Plus un système intègre d'info, plus il est conscient.
+
+### Univers Computationnel
+L'univers comme ordinateur quantique géant se calculant lui-même.
+
+### Physique Digitale
+L'espace-temps pourrait être discret (pixelisé) plutôt que continu.
+
+### Darwinisme Quantique
+Comment l'objectivité émerge de la décohérence quantique.
+
+## 🛠️ Structure Technique
 
 ```
-quantum-religion/
+quantum-religion-v2/
 │
-├── index.html          # Page principale
-├── styles.css          # Styles
-├── script.js           # Logique JavaScript
-├── manifest.json       # Manifeste PWA
-├── README.md           # Documentation
-├── LICENSE             # Licence MIT
-├── .gitignore          # Fichiers à ignorer
-├── robots.txt          # SEO
-├── sitemap.xml         # SEO
-└── .nojekyll           # GitHub Pages
+├── index.html              # Structure HTML v2.0
+├── styles.css              # Design + styles visualisations
+├── script.js               # Logique principale
+├── visualizations.js       # Toutes les animations Canvas
+├── manifest.json           # PWA config
+├── README.md               # Cette doc
+├── LICENSE                 # MIT + CC BY-SA
+├── .gitignore             # Git config
+├── robots.txt             # SEO
+├── sitemap.xml            # SEO
+└── .nojekyll              # GitHub Pages
 ```
 
 ## 🎨 Personnalisation
 
-### Couleurs
-
-Modifiez les variables CSS dans `styles.css` :
+### Thèmes
+Modifiez les couleurs dans `styles.css`:
 
 ```css
 :root {
     --accent-primary: #6366f1;
     --accent-secondary: #8b5cf6;
-    /* ... */
+    --accent-tertiary: #ec4899;
 }
 ```
 
-### Contenu
+### Visualisations
+Toutes les visualisations sont dans `visualizations.js`:
+- `initSuperposition()` - Superposition quantique
+- `initMultiverse()` - Arbre du multivers
+- `initEntropy()` - Graphique d'entropie
+- `initConsciousness()` - Réseau de conscience
+- `initDeterminism()` - Graphe causal
 
-Le contenu est organisé en sections avec IDs uniques :
-- `#axiomes` : Axiomes fondamentaux
-- `#questions` : Questions ouvertes
-- `#philosophie` : Approfondissement
-- `#paradoxe` : Le paradoxe auto-référentiel
-- `#contribuer` : Contribution
+Modifiez les paramètres pour changer le comportement.
 
 ## 🤝 Contribuer
 
-Ce projet est véritablement **open source**. Contributions bienvenues :
+Ce projet est open source. Contributions bienvenues !
 
-### Types de contributions
+### Idées pour Contributions
 
-- 📝 Améliorations du contenu philosophique
-- 🎨 Design et UX
-- 💻 Code et fonctionnalités
-- 🌍 Traductions
-- 📚 Documentation
+- 🌍 Traductions (EN, ES, DE, JP)
+- 📊 Nouvelles visualisations
+- 🔬 Précision scientifique améliorée
+- 🎨 Améliorations UX
+- 📱 Optimisations mobile
+- ♿ Accessibilité
 
 ### Process
 
-1. Fork ce repository
-2. Créez une branche (`git checkout -b feature/AmazingFeature`)
-3. Committez (`git commit -m 'feat: Add AmazingFeature'`)
-4. Poussez (`git push origin feature/AmazingFeature`)
+1. Fork le repo
+2. Créez une branche (`git checkout -b feature/NewViz`)
+3. Commit (`git commit -m 'Add new visualization'`)
+4. Push (`git push origin feature/NewViz`)
 5. Ouvrez une Pull Request
 
-Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour les détails.
+## 🗺️ Roadmap v3.0
 
-## 📚 Ressources Philosophiques
+- [ ] 🌍 Traductions multilingues
+- [ ] 🤖 Chat IA intégré pour discussions philosophiques
+- [ ] 📚 Bibliothèque de ressources organisée
+- [ ] 💬 Forum de discussion communautaire
+- [ ] 🎓 Mode "cours" avec progression
+- [ ] 🔊 Narration audio des concepts
+- [ ] 📈 Plus de visualisations (intrication, téléportation quantique)
+- [ ] 🎮 Mode VR/AR pour explorer les concepts en 3D
 
-### Lectures Recommandées
+## 📚 Ressources Scientifiques
 
-**Physique & Information**
-- David Deutsch - *The Fabric of Reality*
-- Sean Carroll - *Something Deeply Hidden*
-- John Wheeler - Articles sur "It from bit"
+### Physique Quantique
+- [Stanford Encyclopedia - QM](https://plato.stanford.edu/entries/qm/)
+- [Everett's Many-Worlds](https://arxiv.org/abs/quant-ph/9907009)
+- [Quanta Magazine](https://www.quantamagazine.org/)
 
-**Conscience**
-- David Chalmers - *The Conscious Mind*
-- Daniel Dennett - *Consciousness Explained*
-- Douglas Hofstadter - *Gödel, Escher, Bach*
+### Conscience & Information
+- Chalmers, D. - *The Conscious Mind*
+- Tononi, G. - IIT Theory
+- Wheeler, J.A. - "It from Bit"
 
-**IA & Futur**
-- Nick Bostrom - *Superintelligence*
-- Max Tegmark - *Life 3.0*
-
-**Libre Arbitre**
-- Sam Harris - *Free Will*
-- Daniel Dennett - *Freedom Evolves*
-
-### Liens Utiles
-
-- [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/)
-- [arXiv.org](https://arxiv.org/) - Prépublications scientifiques
-- [PhilPapers](https://philpapers.org/) - Base de données philosophique
+### IA & Futur
+- Bostrom, N. - *Superintelligence*
+- Tegmark, M. - *Life 3.0*
 
 ## ⚠️ Avertissements
 
-### Dangers Reconnus
+Ce projet est une **expérience philosophique éducative**, pas :
+- Un cours de physique quantique exact
+- Une simulation scientifique précise
+- Un système de croyances dogmatique
 
-1. **Nihilisme moral** : Ne pas confondre absence de sens intrinsèque avec licence morale
-2. **Dissociation** : L'exploration philosophique intense peut déstabiliser
-3. **Techno-utopisme naïf** : La technologie n'est pas une solution magique
-4. **Pseudo-science** : La physique quantique ne justifie pas le mysticisme new age
-5. **Fatalisme** : Le déterminisme ne doit pas mener à l'inaction
-
-**En cas de détresse psychologique liée à ces idées, consultez un professionnel.**
+Les visualisations sont des **métaphores pédagogiques** pour faciliter la compréhension conceptuelle.
 
 ## 📄 Licence
 
-- **Code** : MIT License
-- **Contenu philosophique** : Creative Commons BY-SA 4.0
+- **Code (HTML/CSS/JS)**: MIT License
+- **Contenu philosophique**: Creative Commons BY-SA 4.0
 
-Vous êtes libre de :
-- ✅ Utiliser commercialement
-- ✅ Modifier et adapter
-- ✅ Distribuer
-- ✅ Utiliser en privé
+Libre d'utiliser, modifier, distribuer.
 
-À condition de :
-- 📝 Inclure la licence et le copyright
-- 🔄 Indiquer les modifications
-- 🤝 Partager sous la même licence (contenu uniquement)
+## 🙏 Crédits
+
+**Inspirations:**
+- John Wheeler ("It from bit")
+- Hugh Everett III (Mondes multiples)
+- David Chalmers (Problème difficile)
+- Giulio Tononi (IIT)
+- Douglas Hofstadter (Boucles étranges)
+
+**Technologies:**
+- Canvas API pour visualisations
+- Vanilla JavaScript
+- CSS Grid & Flexbox
+- HTML5 Semantic
 
 ## 💬 Contact
 
-- **Issues** : Pour bugs et suggestions
-- **Discussions** : Pour débats philosophiques
-- **Pull Requests** : Pour contributions
-
-## 🙏 Inspirations
-
-- John Wheeler ("It from bit")
-- Hugh Everett III (Mondes multiples)
-- David Chalmers (Problème difficile de la conscience)
-- Douglas Hofstadter (Boucles étranges)
-- La communauté open source
-
-## 🎯 Roadmap
-
-- [ ] Traductions (EN, ES, DE)
-- [ ] Mode PWA complet offline
-- [ ] Section blog/articles
-- [ ] Visualisations interactives de concepts quantiques
-- [ ] Forum de discussion
-- [ ] API pour générer des "koans quantiques"
-
-## 🌟 Si ce projet vous interpelle
-
-Laissez une étoile ⭐ si ce projet vous fait réfléchir, même si (surtout si) vous n'êtes pas d'accord.
+- **Issues**: Bugs et suggestions
+- **Discussions**: Débats philosophiques
+- **PRs**: Contributions code/contenu
 
 ---
 
-**∅ = ∞**
+**∅ = ∞ v2.0**
 
-*Le vide contient toutes les possibilités. L'infini commence au zéro.*
+*Explorez visuellement les mystères de l'univers informationnel.*
 
-*Ou peut-être pas. C'est à vous de décider.*
+*Chaque visualisation est une fenêtre sur des concepts qui défient l'intuition.*
 
-*Si "vous" existez. Si le "choix" existe.*
+*L'ironie auto-référentielle incluse gratuitement.* 🎭
 
-*🎭 L'ironie est le point, pas un bug.*
+---
+
+**Si ce projet stimule votre réflexion**, laissez une ⭐ et partagez !

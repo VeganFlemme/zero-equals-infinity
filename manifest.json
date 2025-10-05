@@ -1,12 +1,12 @@
 {
-  "name": "Religion Quantique de l'Information",
-  "short_name": "∅ = ∞",
-  "description": "Expérience philosophique explorant physique quantique, information et conscience",
+  "name": "Religion Quantique v2.0 - Visualisations Interactives",
+  "short_name": "∅ = ∞ v2.0",
+  "description": "Expérience philosophique interactive explorant physique quantique, information et conscience",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "icons": [
     {
       "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236366f1'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3E∅%3C/text%3E%3C/svg%3E",
@@ -21,7 +21,7 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "philosophy", "science"],
+  "categories": ["education", "philosophy", "science", "visualization"],
   "lang": "fr",
   "dir": "ltr",
   "prefer_related_applications": false
