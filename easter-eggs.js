@@ -264,37 +264,45 @@ function activateBinaryMode() {
     const overlay = document.getElementById('binaryOverlay');
     overlay.classList.remove('hidden');
     
-    // Convert entire page content to binary representation
+    // Convert entire page content to binary representation using a Web Worker
     const bodyText = document.body.innerText;
-    let binaryText = '';
     
-    // Convert first 5000 characters to binary (performance)
-    const sample = bodyText.substring(0, 5000);
-    for (let i = 0; i < sample.length; i++) {
-        const binary = sample.charCodeAt(i).toString(2).padStart(8, '0');
-        binaryText += binary + ' ';
-        
-        if ((i + 1) % 10 === 0) {
-            binaryText += '\n';
-        }
-    }
-    
-    overlay.textContent = binaryText;
-    
-    // Matrix rain effect
-    const canvas = document.createElement('canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    canvas.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 10000;
-        mix-blend-mode: screen;
+    // Worker code as a string
+    const workerCode = `
+        self.onmessage = function(e) {
+            const sample = e.data;
+            let binaryText = '';
+            for (let i = 0; i < sample.length; i++) {
+                const binary = sample.charCodeAt(i).toString(2).padStart(8, '0');
+                binaryText += binary + ' ';
+                if ((i + 1) % 10 === 0) {
+                    binaryText += '\\n';
+                }
+            }
+            self.postMessage(binaryText);
+        };
     `;
-    
-    overlay.appendChild(canvas);
+    const blob = new Blob([workerCode], { type: 'application/javascript' });
+    const worker = new Worker(URL.createObjectURL(blob));
+    worker.onmessage = function(e) {
+        overlay.textContent = e.data;
+        // Matrix rain effect
+        const canvas = document.createElement('canvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        canvas.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10000;
+            mix-blend-mode: screen;
+        `;
+        overlay.appendChild(canvas);
+        worker.terminate();
+    };
+    // Send first 5000 characters to worker
+    worker.postMessage(bodyText.substring(0, 5000));
     
     const ctx = canvas.getContext('2d');
     const columns = Math.floor(canvas.width / 20);
