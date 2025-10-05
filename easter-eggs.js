@@ -300,36 +300,59 @@ function activateBinaryMode() {
         `;
         overlay.appendChild(canvas);
         worker.terminate();
+        
+        // Initialize canvas animation
+        const ctx = canvas.getContext('2d');
+        const columns = Math.floor(canvas.width / 20);
+        const drops = Array(columns).fill(0);
+        
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#0f0';
+            ctx.font = '16px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = Math.random() > 0.5 ? '1' : '0';
+                ctx.fillText(text, i * 20, drops[i] * 20);
+                
+                if (drops[i] * 20 > canvas.height && Math.random() > 0.95) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        const matrixInterval = setInterval(drawMatrix, 50);
+        
+        // Show message after 3 seconds and setup exit functionality
+        setupBinaryModeMessage(overlay, matrixInterval);
     };
     // Send first 5000 characters to worker
     worker.postMessage(bodyText.substring(0, 5000));
     
-    const ctx = canvas.getContext('2d');
-    const columns = Math.floor(canvas.width / 20);
-    const drops = Array(columns).fill(0);
-    
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.fillStyle = '#0f0';
-        ctx.font = '16px monospace';
-        
-        for (let i = 0; i < drops.length; i++) {
-            const text = Math.random() > 0.5 ? '1' : '0';
-            ctx.fillText(text, i * 20, drops[i] * 20);
-            
-            if (drops[i] * 20 > canvas.height && Math.random() > 0.95) {
-                drops[i] = 0;
-            }
-            
-            drops[i]++;
+    console.log('%c01000101 01100001 01110011 01110100 01100101 01110010 (Binary Mode!)', 'color: #0f0; font-family: monospace; font-size: 16px;');
+}
+
+function setupBinaryModeMessage(overlay, matrixInterval) {
+    // ESC key to exit
+    const handleEscape = function(e) {
+        if (e.key === 'Escape') {
+            exitBinaryMode();
         }
-    }
+    };
     
-    const matrixInterval = setInterval(drawMatrix, 50);
+    const exitBinaryMode = function() {
+        clearInterval(matrixInterval);
+        overlay.classList.add('hidden');
+        overlay.innerHTML = '';
+        document.removeEventListener('keydown', handleEscape);
+    };
     
-    // Show message after 3 seconds
+    document.addEventListener('keydown', handleEscape);
+    
     setTimeout(() => {
         const message = document.createElement('div');
         message.style.cssText = `
@@ -369,29 +392,11 @@ function activateBinaryMode() {
         
         document.getElementById('exitBinary').addEventListener('click', exitBinaryMode);
     }, 3000);
-    
-    // ESC key to exit
-    function handleEscape(e) {
-        if (e.key === 'Escape') {
-            exitBinaryMode();
-        }
-    }
-    
-    document.addEventListener('keydown', handleEscape);
-    
-    function exitBinaryMode() {
-        clearInterval(matrixInterval);
-        overlay.classList.add('hidden');
-        overlay.innerHTML = '';
-        document.removeEventListener('keydown', handleEscape);
-    }
-    
-    console.log('%c01000101 01100001 01110011 01110100 01100101 01110010 (Binary Mode!)', 'color: #0f0; font-family: monospace; font-size: 16px;');
 }
 
 // Add animation keyframes
-const style = document.createElement('style');
-style.textContent = `
+const easterEggsStyle = document.createElement('style');
+easterEggsStyle.textContent = `
     @keyframes fadeInScale {
         from {
             opacity: 0;
@@ -414,7 +419,7 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(easterEggsStyle);
 
 // ============================================
 // INITIALIZE ALL EASTER EGGS

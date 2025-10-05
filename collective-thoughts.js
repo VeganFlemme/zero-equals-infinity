@@ -297,8 +297,8 @@ function initCollectiveThoughts() {
 window.addEventListener('load', initCollectiveThoughts);
 
 // Add CSS for theme tags
-const style = document.createElement('style');
-style.textContent = `
+const thoughtsStyle = document.createElement('style');
+thoughtsStyle.textContent = `
     .theme-tags {
         display: flex;
         flex-wrap: wrap;
@@ -320,4 +320,4 @@ style.textContent = `
         margin-left: 0.25rem;
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(thoughtsStyle);
