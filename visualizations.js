@@ -356,5 +356,5 @@ window.addEventListener('load', () => {
     initEntropy();
     initParadox();
     
-    console.log('%cVisualizations v2.0 loaded!', 'color: #10b981; font-weight: bold;');
+    console.log('%cVisualizations v3.0 loaded!', 'color: #10b981; font-weight: bold;');
 });
