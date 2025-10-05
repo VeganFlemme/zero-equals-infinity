@@ -397,7 +397,7 @@ section h3 {
     border-radius: var(--radius-sm);
     background: var(--bg-tertiary);
     display: block;
-    touch-action: none; /* Prevent scrolling on touch */
+    touch-action: pan-y; /* Allow vertical scrolling on mobile */
 }
 
 .viz-controls {
