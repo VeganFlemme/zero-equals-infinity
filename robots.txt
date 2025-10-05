@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://votre-domaine.com/sitemap.xml
+
+# Politique générale : tout le contenu est crawlable
+# Pas de restrictions spécifiques
