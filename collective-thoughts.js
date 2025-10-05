@@ -156,7 +156,7 @@ function initCollectiveThoughts() {
                     ctx.beginPath();
                     ctx.moveTo(pos1.x, pos1.y);
                     ctx.lineTo(pos2.x, pos2.y);
-                    ctx.strokeStyle = colors.primary + Math.floor(sim * 100).toString(16).padStart(2, '0');
+                    ctx.strokeStyle = colors.primary + Math.min(Math.floor(sim * 100), 255).toString(16).padStart(2, '0');
                     ctx.lineWidth = sim * 3;
                     ctx.stroke();
                 }
