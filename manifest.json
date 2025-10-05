@@ -1,7 +1,7 @@
 {
-  "name": "Religion Quantique v3.0 - Expériences Mentales Interactives",
+  "name": "Religion Quantique v3.0 - FIXED",
   "short_name": "∅ = ∞ v3.0",
-  "description": "Expérience philosophique interactive explorant physique quantique, information et conscience via expériences mentales célèbres",
+  "description": "Expérience philosophique interactive optimisée - Performance améliorée et bugs corrigés",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -11,18 +11,9 @@
     {
       "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236366f1'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3E∅%3C/text%3E%3C/svg%3E",
       "sizes": "192x192",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236366f1'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'%3E∅%3C/text%3E%3C/svg%3E",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/svg+xml"
     }
   ],
-  "categories": ["education", "philosophy", "science", "visualization", "experimental"],
-  "lang": "fr",
-  "dir": "ltr",
-  "prefer_related_applications": false
+  "categories": ["education", "philosophy", "science"],
+  "lang": "fr"
 }
