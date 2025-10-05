@@ -1,38 +1,79 @@
-# ∅ = ∞ | Religion Quantique v2.0 - Visualisations Interactives
+# ∅ = ∞ | Religion Quantique v3.0 - Expériences Mentales Interactives
 
-[![Version](https://img.shields.io/badge/version-2.0-purple.svg)](https://github.com/VeganFlemme/zero-equals-infinity)
+[![Version](https://img.shields.io/badge/version-3.0-purple.svg)](https://github.com/VeganFlemme/zero-equals-infinity)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> Expérience philosophique interactive explorant physique quantique, théorie de l'information et conscience à travers des visualisations immersives.
+> Expérience philosophique interactive explorant physique quantique, théorie de l'information et conscience à travers des **expériences mentales célèbres** et des visualisations immersives.
 
 🌐 **[Voir le site en ligne](https://zero-equals-infinity.vercel.app)**
 
-## 🎨 Nouveautés v2.0
+## 🆕 Nouveautés v3.0
 
-### **5 Visualisations Interactives Canvas**
+### **Expériences Mentales Classiques**
 
-1. **🌀 Superposition Quantique** - Observez l'effondrement de la fonction d'onde
-2. **🌳 Ramification du Multivers** - Créez votre propre arbre d'univers parallèles
-3. **📊 Entropie & Information** - Explorez la relation entre probabilité et information
-4. **🧠 Émergence de la Conscience** - Visualisez comment la complexité crée la conscience
-5. **🔗 Réseau Causal Déterministe** - Remontez la chaîne infinie des causes
+1. **🐱 Chat de Schrödinger** - Interagissez avec le paradoxe quantique le plus célèbre
+   - Ouvrez la boîte et observez l'effondrement
+   - Statistiques en temps réel sur 100 expériences
+   - Convergence vers 50/50 théorique
 
-### **Contenu Philosophique Affiné**
+2. **👥 Paradoxe de Wigner's Friend** - Deux observateurs, deux réalités
+   - Visualisez la contradiction quantique
+   - L'ami mesure, Wigner voit une superposition
+   - Question : qui a raison ?
 
-- ✨ Axiomes v2.0 avec nuances philosophiques explicites
-- 💭 6 concepts avancés détaillés (principe holographique, IIT, digital physics...)
-- 🎮 Simulateur quantique interactif
-- 🐍 Visualisation du paradoxe auto-référentiel (Ouroboros)
+3. **🎲 Expérience EPR & Test de Bell** - L'intrication quantique défie le réalisme local
+   - Créez des paires intriquées
+   - Mesurez les corrélations instantanées
+   - Testez les inégalités de Bell (S > 2 = violation quantique)
 
-## 🚀 Fonctionnalités
+4. **🧠 Chambre Chinoise de Searle** - Une IA peut-elle vraiment "comprendre" ?
+   - Envoyez des messages en "chinois"
+   - Observez le traitement mécanique
+   - Débat : syntaxe vs sémantique
 
-- ✨ 5 visualisations Canvas interactives temps réel
-- 🧮 Simulateur quantique configurable
+### **Timeline de l'Incertitude**
+
+Frise chronologique interactive de 1900 à 2045 :
+- Planck, Einstein, Heisenberg, Schrödinger
+- Everett, Bell, Wheeler, Tononi
+- Suprématie quantique et IA moderne
+- Singularité technologique hypothétique
+
+### **Graphe de Connaissances 3D**
+
+Visualisation Three.js des interconnexions conceptuelles :
+- **Nœuds 3D** : 16 concepts clés (physique, philosophie, IA)
+- **Liens interactifs** : Relations entre concepts
+- **Navigation** : Rotation, zoom, clic sur nœuds
+- **Couleurs** : Bleu (physique), Violet (philosophie), Rose (IA)
+
+### **Pensées Collectives**
+
+Système participatif de réflexions anonymes :
+- Soumettez vos pensées (280 caractères)
+- **Clustering sémantique** automatique
+- **Visualisation** : Nuage de points par similarité
+- **Thèmes émergents** : Détection de patterns collectifs
+
+### **Easter Eggs Avancés**
+
+3 nouveaux easter eggs secrets :
+- **Séquence Fibonacci** dans les clics → Spirale dorée
+- **Scroll infini** (down puis up) → Message philosophique
+- **Triple-clic** sur ∅ = ∞ → Mode binaire Matrix
+
+## 🚀 Fonctionnalités Complètes
+
+- ✨ 4 expériences mentales interactives célèbres
+- 📊 Timeline historique interactive 1900-2045
+- 🌐 Graphe 3D avec Three.js (16 concepts + relations)
+- 💭 Système de pensées collectives avec clustering
+- 🎨 5 visualisations quantiques v2.0 (maintenues)
+- 🔢 3 easter eggs avancés + Konami code original
 - 🌓 Mode sombre/clair avec persistance
 - 📱 Entièrement responsive (optimisé mobile)
 - ♿ Accessible (WCAG 2.1 AA)
-- ⚡ Vanilla JavaScript (0 dépendances)
-- 🎨 Animations fluides 60 FPS
+- ⚡ Vanilla JavaScript + Three.js (1 seule dépendance)
 
 ## 📦 Installation
 
@@ -52,7 +93,7 @@ python -m http.server 8000
 # Node.js
 npx serve
 
-# PHP  
+# PHP
 php -S localhost:8000
 ```
 
@@ -73,70 +114,89 @@ netlify deploy
 2. Settings > Pages
 3. Source: `main` branch, `/` folder
 
-## 🎯 Utilisation des Visualisations
+## 🎯 Guide d'Utilisation
 
-### Superposition Quantique
-- Observez l'état de superposition
-- Cliquez "Mesurer" pour effondrer vers 0 ou 1
-- Reset pour revenir en superposition
+### Expériences Mentales
 
-### Multivers
-- Cliquez "Faire un Choix" pour créer des bifurcations
-- Observez la croissance exponentielle des univers
-- Chaque branche est un univers réel selon Everett
+**Chat de Schrödinger :**
+1. Observez la superposition initiale (? ?)
+2. Cliquez "Ouvrir la Boîte"
+3. Le chat est maintenant vivant OU mort
+4. Répétez 100 fois pour voir la convergence 50/50
 
-### Entropie
-- Bougez le slider de probabilité
-- Observez comment l'entropie est maximale à p=0.5
-- Maximum d'incertitude = maximum d'information
+**Test EPR/Bell :**
+1. Créez une paire intriquée
+2. Mesurez les deux particules
+3. Observez la corrélation parfaite
+4. Lancez le test de Bell (S > 2 = quantique prouvé)
 
-### Conscience
-- Augmentez la complexité du réseau
-- Observez l'émergence d'intégration
-- Question : à quel seuil la conscience apparaît-elle ?
+### Graphe 3D
 
-### Déterminisme
-- Tracez les causes de vos "choix"
-- Remontez la chaîne causale
-- Question : où commence le "vous" qui choisit ?
+- **Rotation** : Clic + glisser
+- **Zoom** : Molette souris (ou pinch mobile)
+- **Inspection** : Clic sur nœud → infos détaillées
+- **Reset** : Bouton pour revenir à la vue initiale
 
-## 🧠 Concepts Avancés v2.0
+### Pensées Collectives
 
-### Principe Holographique
-Notre univers 3D pourrait être encodé sur une surface 2D. Les dimensions sont peut-être émergentes.
+1. Écrivez votre réflexion (max 280 caractères)
+2. Cliquez "Partager" (anonyme, local)
+3. Observez le nuage de points (similarité sémantique)
+4. Consultez les thèmes émergents
 
-### It from Bit (Wheeler)
-Chaque "chose" (it) dérive de bits d'information. La matière EST information.
+### Easter Eggs
 
-### Théorie IIT (Tononi)
-La conscience = intégration d'information (Φ). Plus un système intègre d'info, plus il est conscient.
+**Fibonacci :**
+- Cliquez avec intervalles de 1, 1, 2, 3, 5 centièmes de seconde
+- OU : Cliquez naturellement, l'algorithme détectera le pattern
 
-### Univers Computationnel
-L'univers comme ordinateur quantique géant se calculant lui-même.
+**Scroll Paradoxe :**
+- Scrollez beaucoup vers le bas
+- Puis remontez tout en haut rapidement
 
-### Physique Digitale
-L'espace-temps pourrait être discret (pixelisé) plutôt que continu.
-
-### Darwinisme Quantique
-Comment l'objectivité émerge de la décohérence quantique.
+**Mode Binaire :**
+- Triple-cliquez sur le titre "∅ = ∞" dans le hero
 
 ## 🛠️ Structure Technique
 
 ```
-zero-equals-infinity/
+zero-equals-infinity-v3/
 │
-├── index.html              # Structure HTML v2.0
-├── styles.css              # Design + styles visualisations
-├── script.js               # Logique principale
-├── visualizations.js       # Toutes les animations Canvas
-├── manifest.json           # PWA config
-├── README.md               # Cette doc
-├── LICENSE                 # MIT + CC BY-SA
-├── .gitignore             # Git config
-├── robots.txt             # SEO
-├── sitemap.xml            # SEO
-└── .nojekyll              # GitHub Pages
+├── index.html                  # Structure HTML v3.0
+├── styles.css                  # Design + styles nouvelles sections
+├── script.js                   # Logique principale
+├── visualizations.js           # Visualisations v2.0 (maintenues)
+├── experiments.js              # 4 expériences mentales
+├── knowledge-graph.js          # Graphe 3D Three.js
+├── collective-thoughts.js      # Système de pensées
+├── easter-eggs.js              # 3 nouveaux easter eggs
+├── manifest.json               # PWA config
+├── README.md                   # Cette doc
+├── CHANGELOG.md                # Historique versions
+├── LICENSE                     # MIT + CC BY-SA
+├── .gitignore                  # Git config
+├── robots.txt                  # SEO
+├── sitemap.xml                 # SEO
+└── .nojekyll                   # GitHub Pages
 ```
+
+## 🧠 Concepts Couverts
+
+### Physique Quantique
+- Superposition, Intrication, Décohérence
+- Théorème de Bell, Mondes multiples
+- Mesure et effondrement
+
+### Philosophie de l'Esprit
+- Conscience et expérience subjective
+- Déterminisme vs libre arbitre
+- Réalisme vs idéalisme
+- Émergence vs panpsychisme
+
+### Intelligence Artificielle
+- Test de Turing, Chambre Chinoise
+- Théorie IIT (Information Intégrée)
+- Conscience artificielle
 
 ## 🎨 Personnalisation
 
@@ -151,63 +211,55 @@ Modifiez les couleurs dans `styles.css`:
 }
 ```
 
-### Visualisations
-Toutes les visualisations sont dans `visualizations.js`:
-- `initSuperposition()` - Superposition quantique
-- `initMultiverse()` - Arbre du multivers
-- `initEntropy()` - Graphique d'entropie
-- `initConsciousness()` - Réseau de conscience
-- `initDeterminism()` - Graphe causal
+### Expériences
+Tous les paramètres dans `experiments.js` :
+- Vitesse d'animation
+- Taille des éléments
+- Règles des expériences
 
-Modifiez les paramètres pour changer le comportement.
+### Graphe 3D
+Position des nœuds dans `knowledge-graph.js` :
+- Modifier les coordonnées [x, y, z]
+- Ajouter de nouveaux concepts
+- Créer de nouvelles connexions
 
 ## 🤝 Contribuer
 
 Ce projet est open source. Contributions bienvenues !
 
-### Idées pour Contributions
-
-- 🌍 Traductions (EN, ES, DE, JP)
-- 📊 Nouvelles visualisations
-- 🔬 Précision scientifique améliorée
-- 🎨 Améliorations UX
-- 📱 Optimisations mobile
-- ♿ Accessibilité
-
 ### Process
 
 1. Fork le repo
-2. Créez une branche (`git checkout -b feature/NewViz`)
-3. Commit (`git commit -m 'Add new visualization'`)
-4. Push (`git push origin feature/NewViz`)
+2. Créez une branche (`git checkout -b feature/NewFeature`)
+3. Commit (`git commit -m 'Add New Feature'`)
+4. Push (`git push origin feature/NewFeature`)
 5. Ouvrez une Pull Request
 
-## 🗺️ Roadmap v3.0
+### Idées de Contributions v4.0
 
-- [ ] 🌍 Traductions multilingues
-- [ ] 🤖 Chat IA intégré pour discussions philosophiques
-- [ ] 📚 Bibliothèque de ressources organisée
-- [ ] 💬 Forum de discussion communautaire
-- [ ] 🎓 Mode "cours" avec progression
-- [ ] 🔊 Narration audio des concepts
-- [ ] 📈 Plus de visualisations (intrication, téléportation quantique)
-- [ ] 🎮 Mode VR/AR pour explorer les concepts en 3D
+- 🌍 Traductions (EN, ES, DE, JP)
+- 🧪 Nouvelles expériences mentales (Téléportation quantique, Double-fente)
+- 🤖 Chat IA intégré pour discussions philosophiques
+- 📚 Bibliothèque de ressources organisée
+- 🎓 Mode "cours" avec progression
+- 🔊 Narration audio des concepts
 
 ## 📚 Ressources Scientifiques
 
 ### Physique Quantique
 - [Stanford Encyclopedia - QM](https://plato.stanford.edu/entries/qm/)
 - [Everett's Many-Worlds](https://arxiv.org/abs/quant-ph/9907009)
-- [Quanta Magazine](https://www.quantamagazine.org/)
+- [Bell's Theorem](https://plato.stanford.edu/entries/bell-theorem/)
 
-### Conscience & Information
+### Conscience & Philosophie
 - Chalmers, D. - *The Conscious Mind*
-- Tononi, G. - IIT Theory
-- Wheeler, J.A. - "It from Bit"
+- Tononi, G. - *Phi: A Voyage from the Brain to the Soul*
+- Searle, J. - *Minds, Brains, and Programs*
 
-### IA & Futur
-- Bostrom, N. - *Superintelligence*
-- Tegmark, M. - *Life 3.0*
+### Bases de Données
+- [arXiv.org](https://arxiv.org/) - Papers en physique et IA
+- [PhilPapers](https://philpapers.org/) - Philosophie
+- [Quanta Magazine](https://www.quantamagazine.org/) - Vulgarisation
 
 ## ⚠️ Avertissements
 
@@ -216,25 +268,26 @@ Ce projet est une **expérience philosophique éducative**, pas :
 - Une simulation scientifique précise
 - Un système de croyances dogmatique
 
-Les visualisations sont des **métaphores pédagogiques** pour faciliter la compréhension conceptuelle.
+Les expériences sont des **métaphores pédagogiques** pour faciliter la compréhension conceptuelle, pas des représentations physiquement exactes.
 
 ## 📄 Licence
 
 - **Code (HTML/CSS/JS)**: MIT License
 - **Contenu philosophique**: Creative Commons BY-SA 4.0
 
-Libre d'utiliser, modifier, distribuer.
+Libre d'utiliser, modifier, distribuer avec attribution.
 
 ## 🙏 Crédits
 
-**Inspirations:**
-- John Wheeler ("It from bit")
-- Hugh Everett III (Mondes multiples)
-- David Chalmers (Problème difficile)
-- Giulio Tononi (IIT)
-- Douglas Hofstadter (Boucles étranges)
+**Inspirations Expériences Mentales:**
+- Erwin Schrödinger (Chat)
+- Einstein, Podolsky, Rosen (EPR)
+- John Bell (Théorème de Bell)
+- Eugene Wigner (Wigner's Friend)
+- John Searle (Chambre Chinoise)
 
 **Technologies:**
+- Three.js pour le graphe 3D
 - Canvas API pour visualisations
 - Vanilla JavaScript
 - CSS Grid & Flexbox
@@ -249,14 +302,16 @@ Libre d'utiliser, modifier, distribuer.
 
 ---
 
-**∅ = ∞ v2.0**
+**∅ = ∞ v3.0**
 
-*Explorez visuellement les mystères de l'univers informationnel.*
+*Interagissez avec les expériences qui ont changé notre vision du réel.*
 
-*Chaque visualisation est une fenêtre sur des concepts qui défient l'intuition.*
+*Chaque expérience est une invitation à remettre en question l'évidence.*
 
-*L'ironie auto-référentielle incluse gratuitement.* 🎭
+*Les easter eggs sont des métaphores de l'exploration intellectuelle.* 🥚
 
 ---
 
 **Si ce projet stimule votre réflexion**, laissez une ⭐ et partagez !
+
+**Trouvez les 4 easter eggs !** 🔍

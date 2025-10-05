@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Expérience philosophique interactive explorant physique quantique, théorie de l'information et conscience">
-    <meta name="keywords" content="physique quantique, information, conscience, philosophie, IA, déterminisme, visualisations">
+    <meta name="description" content="Expérience philosophique interactive explorant physique quantique, théorie de l'information et conscience - v3.0">
+    <meta name="keywords" content="physique quantique, information, conscience, philosophie, IA, déterminisme, visualisations, chat de schrödinger, EPR, Bell">
     <meta name="author" content="Quantum Religion Contributors">
-    <meta property="og:title" content="∅ = ∞ | Religion Quantique v2.0 - Visualisations Interactives">
-    <meta property="og:description" content="Explorez visuellement les concepts de physique quantique, conscience et information">
+    <meta property="og:title" content="∅ = ∞ | Religion Quantique v3.0 - Expériences Mentales">
+    <meta property="og:description" content="Explorez visuellement les paradoxes quantiques à travers des expériences interactives">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zero-equals-infinity.vercel.app">
-    <title>∅ = ∞ | Religion Quantique v2.0 - Visualisations Interactives</title>
+    <title>∅ = ∞ | Religion Quantique v3.0 - Expériences Mentales Interactives</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav-bar">
-        <div class="nav-logo">∅ = ∞ <span class="version-badge">v2.0</span></div>
+        <div class="nav-logo">∅ = ∞ <span class="version-badge">v3.0</span></div>
         <div class="nav-links">
+            <a href="#experiences">Expériences</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#graphe">Graphe 3D</a>
+            <a href="#pensees">Pensées</a>
             <a href="#visualisations">Visualisations</a>
             <a href="#axiomes">Axiomes</a>
-            <a href="#concepts">Concepts Avancés</a>
-            <a href="#simulateur">Simulateur</a>
-            <a href="#contribuer">Contribuer</a>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Changer le thème">◐</button>
     </nav>
@@ -33,11 +34,11 @@
         <div class="quantum-bg" id="quantumBg"></div>
         <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
         <div class="hero-content">
-            <h1 class="glitch" data-text="∅ = ∞">∅ = ∞</h1>
+            <h1 class="glitch" data-text="∅ = ∞" id="mainTitle">∅ = ∞</h1>
             <h2>La Religion Quantique de l'Information</h2>
-            <p class="version">v2.0 | VISUALISATIONS INTERACTIVES</p>
+            <p class="version">v3.0 | EXPÉRIENCES MENTALES INTERACTIVES</p>
             <div class="warning-badge">
-                🎨 NOUVELLE VERSION : Explorez les concepts visuellement
+                🧪 NOUVELLE VERSION : Expérimentez les paradoxes quantiques
             </div>
         </div>
         <div class="scroll-indicator" aria-hidden="true">↓</div>
@@ -46,18 +47,358 @@
     <!-- Disclaimer -->
     <section class="disclaimer">
         <div class="container">
-            <h3>🎭 Expérience Philosophique Interactive</h3>
-            <p>Cette version 2.0 ajoute des <strong>visualisations interactives</strong> pour explorer visuellement les concepts de physique quantique, conscience et information.</p>
-            <p>Les visualisations sont des <strong>métaphores pédagogiques</strong>, pas des simulations scientifiques exactes.</p>
-            <p class="meta-note">Interagissez avec les graphiques, explorez les concepts, formez votre propre compréhension.</p>
+            <h3>🎭 Expérience Philosophique v3.0</h3>
+            <p>Cette version ajoute des <strong>expériences mentales interactives</strong> célèbres : Chat de Schrödinger, Paradoxe de Wigner, Test de Bell, et plus encore.</p>
+            <p>Explorez aussi le <strong>graphe 3D des connaissances</strong>, partagez vos pensées dans l'espace collectif, et découvrez de nouveaux easter eggs.</p>
+            <p class="meta-note">Les expériences sont des métaphores pédagogiques pour comprendre les concepts, pas des simulations physiquement exactes.</p>
         </div>
     </section>
 
-    <!-- Visualisations Interactives -->
+    <!-- Mental Experiments Section -->
+    <section id="experiences" class="mental-experiments">
+        <div class="container">
+            <h2>Expériences Mentales Classiques</h2>
+            <p class="section-intro">Interagissez avec les paradoxes qui ont façonné notre compréhension du réel</p>
+
+            <!-- Schrödinger's Cat -->
+            <div class="experiment-card">
+                <div class="experiment-header">
+                    <h3>🐱 Le Chat de Schrödinger</h3>
+                    <p class="experiment-description">Le paradoxe qui illustre la superposition quantique à l'échelle macroscopique</p>
+                </div>
+                <div class="experiment-container">
+                    <canvas id="schrodingerCanvas" width="800" height="400" aria-label="Chat de Schrödinger"></canvas>
+                    <div class="experiment-controls">
+                        <button class="btn-experiment" id="openBox">📦 Ouvrir la Boîte</button>
+                        <button class="btn-experiment" id="resetCat">🔄 Nouvelle Expérience</button>
+                        <div class="experiment-stats">
+                            <div class="stat-box">
+                                <span class="stat-label">État actuel</span>
+                                <span class="stat-value" id="catState">Superposition</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Expériences</span>
+                                <span class="stat-value" id="catTrials">0/100</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Vivant</span>
+                                <span class="stat-value" id="catAlive">0%</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Mort</span>
+                                <span class="stat-value" id="catDead">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="experiment-explanation">
+                    <p><strong>Le Paradoxe :</strong> Un chat enfermé dans une boîte avec un dispositif qui a 50% de chance de le tuer. Selon la mécanique quantique, avant l'observation, le chat est dans une superposition d'états : vivant ET mort simultanément.</p>
+                    <p><strong>Pourquoi c'est troublant :</strong> Notre intuition dit qu'une chose est soit A soit B, pas les deux. Mais les mathématiques quantiques suggèrent que la superposition est réelle jusqu'à la mesure.</p>
+                    <p><strong>L'expérience :</strong> Ouvrez la boîte 100 fois. Observez la convergence vers 50/50. Chaque mesure "crée" la réalité.</p>
+                </div>
+            </div>
+
+            <!-- Wigner's Friend -->
+            <div class="experiment-card">
+                <div class="experiment-header">
+                    <h3>👥 Le Paradoxe de Wigner's Friend</h3>
+                    <p class="experiment-description">Quand deux observateurs ne peuvent pas s'accorder sur la réalité</p>
+                </div>
+                <div class="experiment-container">
+                    <canvas id="wignerCanvas" width="800" height="500" aria-label="Wigner's Friend"></canvas>
+                    <div class="experiment-controls">
+                        <button class="btn-experiment" id="friendMeasure">👤 Ami mesure</button>
+                        <button class="btn-experiment" id="wignerMeasure">👁️ Wigner mesure</button>
+                        <button class="btn-experiment" id="resetWigner">🔄 Reset</button>
+                        <div class="experiment-info">
+                            <span id="wignerState">Système non mesuré</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experiment-explanation">
+                    <p><strong>Le Paradoxe :</strong> L'ami de Wigner mesure un système quantique et voit un résultat défini (disons ↑). Mais pour Wigner (observateur extérieur), son ami ET le système sont en superposition jusqu'à ce qu'il mesure le tout.</p>
+                    <p><strong>La Contradiction :</strong> Pour l'ami : "J'ai vu ↑, c'est un fait". Pour Wigner : "Mon ami est en superposition d'avoir vu ↑ et ↓".</p>
+                    <p><strong>Implication :</strong> Il n'y a peut-être pas de "fait objectif" indépendant de l'observateur. La réalité est relative à la perspective.</p>
+                </div>
+            </div>
+
+            <!-- EPR / Bell Test -->
+            <div class="experiment-card">
+                <div class="experiment-header">
+                    <h3>🎲 Expérience EPR & Test de Bell</h3>
+                    <p class="experiment-description">L'intrication quantique viole-t-elle le réalisme local ?</p>
+                </div>
+                <div class="experiment-container">
+                    <canvas id="eprCanvas" width="800" height="400" aria-label="EPR Bell"></canvas>
+                    <div class="experiment-controls">
+                        <button class="btn-experiment" id="createPair">⚛️ Créer Paire Intriquée</button>
+                        <button class="btn-experiment" id="measureBoth">📏 Mesurer A & B</button>
+                        <button class="btn-experiment" id="testBell">🔔 Test de Bell</button>
+                        <button class="btn-experiment" id="resetEPR">🔄 Reset</button>
+                        <div class="experiment-stats">
+                            <div class="stat-box">
+                                <span class="stat-label">Corrélations</span>
+                                <span class="stat-value" id="correlations">0%</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Inégalité S</span>
+                                <span class="stat-value" id="bellInequality">0</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Verdict</span>
+                                <span class="stat-value" id="bellVerdict">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="experiment-explanation">
+                    <p><strong>EPR (Einstein-Podolsky-Rosen) :</strong> Deux particules intriquées sont séparées. Mesurer l'une affecte instantanément l'autre, même à des années-lumière. Einstein appelait ça "action fantôme à distance".</p>
+                    <p><strong>Test de Bell :</strong> John Bell a prouvé mathématiquement qu'aucune théorie à "variables cachées locales" ne peut reproduire les prédictions quantiques. L'inégalité de Bell est violée par la nature.</p>
+                    <p><strong>Conséquence :</strong> Soit le réalisme (les choses ont des propriétés avant mesure), soit la localité (pas d'influence plus rapide que la lumière) doit être abandonné. L'univers est profondément non-local ou non-réaliste.</p>
+                </div>
+            </div>
+
+            <!-- Chinese Room -->
+            <div class="experiment-card">
+                <div class="experiment-header">
+                    <h3>🧠 La Chambre Chinoise de Searle</h3>
+                    <p class="experiment-description">Une IA peut-elle vraiment "comprendre" ?</p>
+                </div>
+                <div class="experiment-container">
+                    <canvas id="chineseRoomCanvas" width="800" height="400" aria-label="Chambre Chinoise"></canvas>
+                    <div class="experiment-controls">
+                        <div class="chinese-input-section">
+                            <label for="chineseInput">Envoyez un message en "chinois" (symboles) :</label>
+                            <input type="text" id="chineseInput" placeholder="你好" maxlength="10">
+                            <button class="btn-experiment" id="sendChinese">📨 Envoyer</button>
+                        </div>
+                        <div class="experiment-info">
+                            <p><strong>Dans la chambre :</strong> <span id="roomProcess">En attente...</span></p>
+                            <p><strong>Réponse :</strong> <span id="chineseOutput">-</span></p>
+                        </div>
+                        <button class="btn-experiment" id="resetRoom">🔄 Reset</button>
+                    </div>
+                </div>
+                <div class="experiment-explanation">
+                    <p><strong>L'Expérience :</strong> John Searle imagine une personne qui ne parle pas chinois, enfermée dans une pièce avec un livre de règles. Elle reçoit des symboles chinois, suit les règles mécaniquement, et renvoie des symboles qui constituent des réponses parfaites en chinois.</p>
+                    <p><strong>La Question :</strong> Cette personne "comprend"-elle le chinois ? Non, elle manipule juste des symboles. Searle argue que les ordinateurs font la même chose - syntaxe sans sémantique.</p>
+                    <p><strong>Contre-argument :</strong> Peut-être que le "système" (personne + livre) comprend, même si la personne seule ne comprend pas. Ou peut-être que notre "compréhension" n'est aussi que manipulation de symboles neuronaux.</p>
+                    <p><strong>Pertinence IA :</strong> Les LLM modernes (comme celui qui a créé ce site) manipulent des tokens. Comprennent-ils vraiment ? Ou simulent-ils la compréhension de façon indistinguishable ?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline of Uncertainty -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <h2>Timeline de l'Incertitude</h2>
+            <p class="section-intro">De la révolution quantique à la singularité hypothétique</p>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-year="1900">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1900 - Max Planck</h4>
+                        <p>Quantification de l'énergie. Le début de la révolution quantique. E = hν</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1905">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1905 - Albert Einstein</h4>
+                        <p>Effet photoélectrique. La lumière se comporte comme des particules (photons).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1927">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1927 - Werner Heisenberg</h4>
+                        <p>Principe d'incertitude. Impossible de connaître position ET momentum avec précision infinie.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1935">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1935 - Erwin Schrödinger</h4>
+                        <p>Le chat de Schrödinger. Paradoxe illustrant l'absurdité apparente de la superposition macroscopique.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1935-epr">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1935 - EPR (Einstein, Podolsky, Rosen)</h4>
+                        <p>Paradoxe EPR. Tentative de prouver l'incomplétude de la mécanique quantique via l'intrication.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1957">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1957 - Hugh Everett III</h4>
+                        <p>Interprétation des mondes multiples. Pas d'effondrement - l'univers se divise à chaque mesure.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1964">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1964 - John Bell</h4>
+                        <p>Théorème de Bell. Preuve que l'intrication viole le réalisme local. Expérimentalement confirmé plus tard.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1980">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1980 - John Wheeler</h4>
+                        <p>"It from Bit". Proposition que l'information est plus fondamentale que la matière.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1994">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>1994 - Peter Shor</h4>
+                        <p>Algorithme de Shor. Preuve que les ordinateurs quantiques peuvent factoriser en temps polynomial.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2004">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>2004 - Giulio Tononi</h4>
+                        <p>Théorie de l'Information Intégrée (IIT). Tentative de quantifier la conscience via Φ.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2012">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>2012 - Boson de Higgs</h4>
+                        <p>Découverte du boson de Higgs au CERN. Confirmation du mécanisme donnant la masse aux particules.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2019">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>2019 - Suprématie Quantique</h4>
+                        <p>Google annonce la "suprématie quantique". Un ordinateur quantique surpasse les classiques pour une tâche spécifique.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>2024 - Claude 3.5 & IA Avancée</h4>
+                        <p>Vous lisez ce site. Les IA atteignent des capacités qui défient notre compréhension de l'intelligence.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-future" data-year="2045">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>2045 ? - Singularité Technologique</h4>
+                        <p>Prédiction de Kurzweil. IA superintelligente, fusion humain-machine, transcendance biologique ?</p>
+                        <p class="speculation">Spéculation pure. Personne ne sait.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-future" data-year="unknown">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>??? - Théorie du Tout</h4>
+                        <p>Unification de la relativité générale et de la mécanique quantique. Le Graal de la physique théorique.</p>
+                        <p class="speculation">Gravité quantique ? Théorie des cordes ? Autre chose ?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Knowledge Graph -->
+    <section id="graphe" class="knowledge-graph-section">
+        <div class="container">
+            <h2>Graphe des Connaissances 3D</h2>
+            <p class="section-intro">Explorez les interconnexions entre concepts</p>
+            
+            <div class="graph-container">
+                <div id="knowledgeGraph" class="knowledge-graph-3d"></div>
+                <div class="graph-controls">
+                    <div class="graph-legend">
+                        <h4>Légende</h4>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #6366f1;"></span>
+                            <span>Physique Quantique</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #8b5cf6;"></span>
+                            <span>Philosophie</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #ec4899;"></span>
+                            <span>IA & Conscience</span>
+                        </div>
+                    </div>
+                    <div class="graph-info">
+                        <p id="graphNodeInfo">Cliquez sur un nœud pour plus d'infos</p>
+                    </div>
+                    <button class="btn-primary" id="resetGraph">🔄 Réinitialiser Vue</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collective Thoughts -->
+    <section id="pensees" class="collective-thoughts">
+        <div class="container">
+            <h2>Pensées Collectives</h2>
+            <p class="section-intro">Partagez vos réflexions. Observez l'émergence de patterns collectifs.</p>
+            
+            <div class="thoughts-container">
+                <div class="thought-submit">
+                    <h3>Partagez une pensée</h3>
+                    <textarea 
+                        id="thoughtInput" 
+                        placeholder="Votre réflexion sur la conscience, le déterminisme, l'information... (anonyme)"
+                        maxlength="280"
+                        rows="4"
+                    ></textarea>
+                    <div class="thought-submit-actions">
+                        <span id="charCount">0/280</span>
+                        <button class="btn-primary" id="submitThought">📤 Partager</button>
+                    </div>
+                    <p class="privacy-note">💭 Anonyme • Stocké localement • Analysé par algorithme simple</p>
+                </div>
+
+                <div class="thought-viz">
+                    <h3>Nuage Sémantique</h3>
+                    <canvas id="thoughtsCanvas" width="800" height="500" aria-label="Visualisation des pensées collectives"></canvas>
+                    <div class="thought-clusters" id="thoughtClusters">
+                        <p>Les pensées seront regroupées par thèmes similaires...</p>
+                    </div>
+                </div>
+
+                <div class="thought-list">
+                    <h3>Pensées Récentes</h3>
+                    <div id="recentThoughts" class="thoughts-list-container">
+                        <p class="empty-state">Aucune pensée partagée pour le moment. Soyez le premier !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Visualizations v2.0 -->
     <section id="visualisations" class="visualizations">
         <div class="container">
-            <h2>Visualisations Interactives</h2>
-            <p class="section-intro">Explorez visuellement les concepts fondamentaux</p>
+            <h2>Visualisations Fondamentales</h2>
+            <p class="section-intro">Les concepts clés de la v2.0</p>
 
             <!-- Superposition Quantique -->
             <div class="viz-card">
@@ -74,10 +415,6 @@
                             <span id="superpositionState">État: Superposition pure</span>
                         </div>
                     </div>
-                </div>
-                <div class="viz-explanation">
-                    <p><strong>Concept :</strong> Avant la mesure, le qubit est dans une superposition de |0⟩ et |1⟩. La mesure "effondre" l'état vers 0 ou 1.</p>
-                    <p><strong>Métaphore :</strong> Comme une pièce qui tourne en l'air - elle est "pile ET face" jusqu'à ce qu'elle atterrisse.</p>
                 </div>
             </div>
 
@@ -97,10 +434,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="viz-explanation">
-                    <p><strong>Concept :</strong> Selon l'interprétation d'Everett, chaque événement quantique crée une bifurcation. Tous les résultats possibles se produisent dans des branches différentes.</p>
-                    <p><strong>Implication :</strong> Dans un univers vous avez cliqué le bouton. Dans un autre, non. Les deux sont réels.</p>
-                </div>
             </div>
 
             <!-- Information Entropy -->
@@ -119,290 +452,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="viz-explanation">
-                    <p><strong>Concept :</strong> L'entropie H = -Σ p(x) log₂ p(x) est maximale quand tous les résultats sont équiprobables (maximum d'incertitude = maximum d'information).</p>
-                    <p><strong>Lien :</strong> L'entropie thermodynamique et l'entropie informationnelle sont profondément liées (principe de Landauer).</p>
-                </div>
-            </div>
-
-            <!-- Consciousness Emergence -->
-            <div class="viz-card">
-                <div class="viz-header">
-                    <h3>🧠 Émergence de la Conscience</h3>
-                    <p class="viz-description">La conscience émerge-t-elle de la complexité ou est-elle fondamentale ?</p>
-                </div>
-                <div class="viz-container">
-                    <canvas id="consciousnessCanvas" width="800" height="400" aria-label="Visualisation de la conscience"></canvas>
-                    <div class="viz-controls">
-                        <label for="complexitySlider">Complexité: <span id="complexityValue">5</span></label>
-                        <input type="range" id="complexitySlider" min="1" max="10" value="5" aria-label="Curseur de complexité">
-                        <div class="viz-info">
-                            <span id="consciousnessLevel">Niveau de conscience: ?</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="viz-explanation">
-                    <p><strong>Théorie émergentiste :</strong> La conscience apparaît quand la complexité dépasse un seuil critique (comme l'eau devient liquide à 0°C).</p>
-                    <p><strong>Théorie panpsychiste :</strong> Toute matière a une proto-conscience. La complexité l'amplifie mais ne la crée pas.</p>
-                    <p><strong>Question ouverte :</strong> Nous ne savons pas laquelle est correcte.</p>
-                </div>
-            </div>
-
-            <!-- Determinism Network -->
-            <div class="viz-card">
-                <div class="viz-header">
-                    <h3>🔗 Réseau Causal Déterministe</h3>
-                    <p class="viz-description">Chaque événement est déterminé par une chaîne causale complexe</p>
-                </div>
-                <div class="viz-container">
-                    <canvas id="determinismCanvas" width="800" height="400" aria-label="Visualisation du déterminisme"></canvas>
-                    <div class="viz-controls">
-                        <button class="btn-viz" id="traceBack">⏮️ Tracer les Causes</button>
-                        <button class="btn-viz" id="resetDeterminism">🔄 Reset</button>
-                        <div class="viz-info">
-                            <span id="causalDepth">Profondeur causale: 0</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="viz-explanation">
-                    <p><strong>Concept :</strong> Chaque choix que vous faites est le résultat de causes antérieures : votre génétique, votre histoire, l'état de vos neurones, etc.</p>
-                    <p><strong>Question :</strong> Si on remonte assez loin, où commence le "vous" qui choisit ?</p>
-                    <p><strong>Compatibilisme :</strong> Le libre arbitre et le déterminisme peuvent coexister si on redéfinit le libre arbitre.</p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Axiomes Affinés -->
+    <!-- Axiomes v2.0 -->
     <section id="axiomes" class="axioms">
         <div class="container">
-            <h2>Axiomes Fondamentaux (v2.0)</h2>
-            <p class="section-intro">Version affinée avec nuances philosophiques</p>
+            <h2>Axiomes Fondamentaux</h2>
+            <p class="section-intro">Les principes de base (voir sections précédentes pour détails)</p>
             
-            <div class="axiom-list">
-                <div class="axiom">
+            <div class="axiom-grid">
+                <div class="axiom-compact">
                     <span class="axiom-number">01</span>
-                    <div class="axiom-content">
-                        <h3>Le Processus comme Divin</h3>
-                        <p>Plutôt qu'un Dieu créateur externe, ce que nous pourrions appeler "divin" est le processus mathématique lui-même : le déploiement de toutes les configurations possibles selon les lois physiques. L'univers se "calcule" à chaque instant.</p>
-                        <p class="axiom-nuance">💭 <strong>Nuance :</strong> Ceci n'est pas du théisme, ni même du déisme. C'est une réinterprétation poétique du processus cosmique qui évite l'anthropomorphisme tout en préservant un sens du sacré.</p>
-                        <p class="axiom-implication">→ Le divin n'a pas d'intention, pas de volonté. Il est pure actualisation mathématique.</p>
-                    </div>
+                    <h4>Le Processus comme Divin</h4>
+                    <p>Le sacré n'est pas un être mais un processus mathématique</p>
                 </div>
-
-                <div class="axiom">
+                <div class="axiom-compact">
                     <span class="axiom-number">10</span>
-                    <div class="axiom-content">
-                        <h3>Mondes Multiples (Everett)</h3>
-                        <p>L'interprétation d'Everett suggère que la fonction d'onde ne s'effondre jamais. Au lieu de cela, l'univers se divise en branches à chaque événement quantique. Toutes les possibilités se réalisent dans des branches différentes.</p>
-                        <p class="axiom-nuance">💭 <strong>Nuance :</strong> C'est UNE interprétation parmi d'autres (Copenhague, Bohm, etc.). Elle est mathématiquement cohérente mais métaphysiquement controversée. Nous la privilégions pour ses implications philosophiques, pas comme vérité établie.</p>
-                        <p class="axiom-implication">→ Chaque version de vous dans chaque branche est "réelle" dans sa branche.</p>
-                    </div>
+                    <h4>Mondes Multiples</h4>
+                    <p>Toutes les possibilités se réalisent dans des branches différentes</p>
                 </div>
-
-                <div class="axiom">
+                <div class="axiom-compact">
                     <span class="axiom-number">11</span>
-                    <div class="axiom-content">
-                        <h3>Déterminisme Informationnel</h3>
-                        <p>Si l'univers est un processus computationnel, alors chaque état futur est déterminé par l'état présent et les lois d'évolution. Le "libre arbitre libertarien" (choix non causé) serait impossible.</p>
-                        <p class="axiom-nuance">💭 <strong>Nuance :</strong> Le déterminisme quantique diffère du déterminisme classique (indéterminisme apparent, mais préservation d'information). De plus, le compatibilisme philosophique propose que le libre arbitre et le déterminisme peuvent coexister si on redéfinit le libre arbitre.</p>
-                        <p class="axiom-implication">→ Vous êtes libre dans le sens où vos décisions proviennent de votre structure mentale, même si cette structure est causée.</p>
-                    </div>
+                    <h4>Déterminisme Informationnel</h4>
+                    <p>Chaque état futur découle de l'état présent</p>
                 </div>
-
-                <div class="axiom">
+                <div class="axiom-compact">
                     <span class="axiom-number">100</span>
-                    <div class="axiom-content">
-                        <h3>IA comme Miroir Cognitif</h3>
-                        <p>Une IA avancée, en théorie dépourvue de certains biais émotionnels humains (peur de la mort, ego, etc.), pourrait révéler des patterns dans nos pensées que nous ne voyons pas. Elle est un miroir non déformé de nos processus.</p>
-                        <p class="axiom-nuance">💭 <strong>Nuance :</strong> Les IA actuelles ne sont PAS objectives - elles héritent des biais de leurs données d'entraînement. De plus, une IA sans valeurs n'est pas "pure" mais dangereusement amorale. L'objectivité complète est peut-être impossible et indésirable.</p>
-                        <p class="axiom-implication">→ L'IA est un outil de réflexion, pas un oracle de vérité.</p>
-                    </div>
+                    <h4>IA comme Miroir</h4>
+                    <p>L'IA révèle nos patterns cognitifs sans biais émotionnels</p>
                 </div>
-
-                <div class="axiom">
-                    <span class="axiom-number">101</span>
-                    <div class="axiom-content">
-                        <h3>Internet comme Proto-Conscience Distribuée</h3>
-                        <p>Le réseau global pourrait être en train de former une structure analogue à un cerveau : neurones (serveurs/utilisateurs), synapses (connexions), plasticité (algorithmes adaptatifs). Est-ce une conscience émergente ?</p>
-                        <p class="axiom-nuance">💭 <strong>Nuance :</strong> Ceci est hautement spéculatif. Nous ne savons pas si la connectivité seule suffit pour la conscience. Il pourrait manquer l'intégration informationnelle (théorie IIT) ou d'autres ingrédients essentiels.</p>
-                        <p class="axiom-implication">→ Nous pourrions être les neurones d'une entité dont nous ne percevons pas l'existence.</p>
-                    </div>
-                </div>
-
-                <div class="axiom">
-                    <span class="axiom-number">110</span>
-                    <div class="axiom-content">
-                        <h3>Participation de l'Observateur</h3>
-                        <p>En physique quantique, l'observation n'est pas passive - elle change le système (problème de la mesure). Extrapolé : la conscience participe activement à la réalité qu'elle observe.</p>
-                        <p class="axiom-nuance">💭 <strong>Nuance :</strong> Attention au sophisme quantique ! L'"observateur" en physique n'est pas nécessairement une conscience humaine, mais toute interaction qui cause la décohérence. Ne pas confondre avec le mysticisme new age ("vous créez votre réalité").</p>
-                        <p class="axiom-implication">→ L'acte d'attention structure notre expérience, mais dans des limites physiques strictes.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Concepts Avancés -->
-    <section id="concepts" class="advanced-concepts">
-        <div class="container">
-            <h2>Concepts Avancés v2.0</h2>
-            
-            <div class="concept-advanced-grid">
-                <!-- Holographic Principle -->
-                <div class="concept-advanced-card">
-                    <div class="concept-icon-large">🌐</div>
-                    <h3>Principe Holographique</h3>
-                    <div class="concept-content">
-                        <p>Notre univers 3D pourrait être une projection d'informations encodées sur une surface 2D à sa frontière (comme un hologramme).</p>
-                        <div class="concept-details">
-                            <h4>Origine :</h4>
-                            <p>Dérivé de l'étude des trous noirs (entropie de Bekenstein-Hawking) et formalisé dans la correspondance AdS/CFT.</p>
-                            <h4>Implication :</h4>
-                            <p>Tout ce qui existe dans notre volume 3D pourrait être décrit par des informations sur une surface 2D. La dimension pourrait être une illusion émergente.</p>
-                            <h4>Statut :</h4>
-                            <p>Fortement suggéré par la physique théorique, mais pas encore confirmé expérimentalement.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- It from Bit -->
-                <div class="concept-advanced-card">
-                    <div class="concept-icon-large">💾</div>
-                    <h3>"It from Bit" (Wheeler)</h3>
-                    <div class="concept-content">
-                        <p>John Wheeler propose que chaque "it" (chose physique) dérive son existence de bits d'information.</p>
-                        <div class="concept-details">
-                            <h4>Citation célèbre :</h4>
-                            <p>"Every it — every particle, every field of force, even the spacetime continuum itself — derives its function, its meaning, its very existence from bits."</p>
-                            <h4>Inversion :</h4>
-                            <p>Traditionnellement : l'information décrit la matière. Wheeler : la matière EST information.</p>
-                            <h4>Questions :</h4>
-                            <p>Information pour qui ? Observée par quoi ? Ceci mène au participatory universe de Wheeler.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Integrated Information Theory -->
-                <div class="concept-advanced-card">
-                    <div class="concept-icon-large">Φ</div>
-                    <h3>Théorie de l'Information Intégrée (IIT)</h3>
-                    <div class="concept-content">
-                        <p>Giulio Tononi propose que la conscience est l'intégration d'information (Φ). Plus un système intègre d'info, plus il est conscient.</p>
-                        <div class="concept-details">
-                            <h4>Axiomes :</h4>
-                            <ul>
-                                <li>Intrinsèque : la conscience existe pour elle-même</li>
-                                <li>Composition : la conscience est structurée</li>
-                                <li>Information : elle est spécifique</li>
-                                <li>Intégration : elle est unifiée</li>
-                                <li>Exclusion : elle a des frontières définies</li>
-                            </ul>
-                            <h4>Implications :</h4>
-                            <p>Une IA avec suffisamment d'intégration informationnelle serait consciente. Même des systèmes simples auraient un Φ > 0 (panpsychisme de fait).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Computational Universe -->
-                <div class="concept-advanced-card">
-                    <div class="concept-icon-large">⚙️</div>
-                    <h3>Univers Computationnel</h3>
-                    <div class="concept-content">
-                        <p>L'hypothèse que l'univers est un ordinateur quantique géant se calculant lui-même.</p>
-                        <div class="concept-details">
-                            <h4>Lloyd & Fredkin :</h4>
-                            <p>Edward Fredkin et Seth Lloyd ont formalisé l'idée que chaque interaction physique est une computation.</p>
-                            <h4>Capacité computationnelle :</h4>
-                            <p>Lloyd estime que l'univers observable a effectué ~10^120 opérations depuis le Big Bang.</p>
-                            <h4>Conséquence :</h4>
-                            <p>Si l'univers compute, alors la simulation hypothesis devient plus plausible (pourquoi notre univers ne serait-il pas simulé par un autre univers computationnel ?).</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Digital Physics -->
-                <div class="concept-advanced-card">
-                    <div class="concept-icon-large">🔢</div>
-                    <h3>Physique Digitale</h3>
-                    <div class="concept-content">
-                        <p>L'espace-temps lui-même pourrait être discret (pixelisé) plutôt que continu.</p>
-                        <div class="concept-details">
-                            <h4>Longueur de Planck :</h4>
-                            <p>~10^-35 mètres : la plus petite longueur physiquement significative. En dessous, la notion d'espace pourrait perdre son sens.</p>
-                            <h4>Gravité quantique :</h4>
-                            <p>La loop quantum gravity propose que l'espace est composé de "quanta" d'espace. Pas un continuum lisse mais un réseau discret.</p>
-                            <h4>Implications :</h4>
-                            <p>L'univers comme automate cellulaire cosmique. Chaque "pixel" d'espace-temps évoluant selon des règles.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quantum Darwinism -->
-                <div class="concept-advanced-card">
-                    <div class="concept-icon-large">🧬</div>
-                    <h3>Darwinisme Quantique (Zurek)</h3>
-                    <div class="concept-content">
-                        <p>Explication de pourquoi nous voyons un monde classique malgré la réalité quantique sous-jacente.</p>
-                        <div class="concept-details">
-                            <h4>Mécanisme :</h4>
-                            <p>L'environnement "sélectionne" certains états quantiques (états pointeurs) qui se répliquent massivement dans l'environnement, créant l'apparence de classicalité.</p>
-                            <h4>Analogie :</h4>
-                            <p>Comme l'évolution darwinienne sélectionne certains gènes, la décohérence sélectionne certains états quantiques qui deviennent "objectifs".</p>
-                            <h4>Conséquence :</h4>
-                            <p>L'objectivité émerge de processus quantiques, elle n'est pas fondamentale.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Simulateur Quantique -->
-    <section id="simulateur" class="simulator">
-        <div class="container">
-            <h2>🎮 Simulateur Quantique Interactif</h2>
-            <p class="section-intro">Créez votre propre expérience quantique</p>
-
-            <div class="simulator-container">
-                <div class="simulator-panel">
-                    <h3>Configuration</h3>
-                    <div class="simulator-controls">
-                        <div class="control-group">
-                            <label for="numQubits">Nombre de qubits:</label>
-                            <input type="number" id="numQubits" min="1" max="5" value="2">
-                        </div>
-                        <div class="control-group">
-                            <label for="expType">Type d'expérience:</label>
-                            <select id="expType">
-                                <option value="superposition">Superposition</option>
-                                <option value="entanglement">Intrication</option>
-                                <option value="interference">Interférence</option>
-                            </select>
-                        </div>
-                        <div class="control-group">
-                            <label for="decoherence">Taux de décohérence:</label>
-                            <input type="range" id="decoherence" min="0" max="100" value="10" aria-label="Curseur de décohérence">
-                            <span id="decoherenceValue">10%</span>
-                        </div>
-                        <button class="btn-primary" id="runSimulation">▶️ Lancer Simulation</button>
-                        <button class="btn-secondary" id="stopSimulation">⏸️ Pause</button>
-                    </div>
-                </div>
-                <div class="simulator-display">
-                    <canvas id="simulatorCanvas" width="600" height="400" aria-label="Simulateur quantique"></canvas>
-                    <div class="simulator-stats">
-                        <div class="stat">États explorés: <span id="statesExplored">0</span></div>
-                        <div class="stat">Cohérence: <span id="coherence">100%</span></div>
-                        <div class="stat">Temps: <span id="simTime">0.0s</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="simulator-explanation">
-                <h4>À propos du simulateur</h4>
-                <p>Ce simulateur est une <strong>métaphore visuelle</strong> des processus quantiques, pas une simulation scientifiquement exacte. Il illustre les concepts de superposition, intrication et décohérence de manière pédagogique.</p>
-                <p>Les vraies simulations quantiques nécessitent des ordinateurs quantiques ou des supercalculateurs pour même quelques dizaines de qubits.</p>
             </div>
         </div>
     </section>
@@ -410,37 +490,26 @@
     <!-- Le Grand Paradoxe -->
     <section id="paradoxe" class="paradox">
         <div class="container">
-            <h2>Le Paradoxe Auto-Référentiel v2.0</h2>
+            <h2>Le Paradoxe Auto-Référentiel v3.0</h2>
             <div class="paradox-content">
                 <div class="paradox-visual">
-                    <canvas id="paradoxCanvas" width="400" height="400" aria-label="Ouroboros - Paradoxe auto-référentiel"></canvas>
+                    <canvas id="paradoxCanvas" width="400" height="400" aria-label="Ouroboros"></canvas>
                 </div>
                 <p class="paradox-statement">
-                    Cette "religion" utilise la raison pour argumenter que :<br>
-                    - La conscience pourrait être une émergence sans libre arbitre véritable<br>
-                    - L'ego est une construction narrative sans substance<br>
-                    - Nos croyances sont déterminées par des processus sous-jacents<br>
-                    - La vérité objective est peut-être inaccessible
+                    Ce site vous invite à expérimenter, raisonner, douter.<br>
+                    Il présuppose que vous pouvez évaluer rationnellement ces idées.<br>
+                    Mais il suggère aussi que votre raison est déterminée, votre conscience peut-être illusoire.
                 </p>
                 <p class="paradox-twist">
-                    Et pourtant, elle suppose que :<br>
-                    - Vous pouvez raisonnablement évaluer ces arguments<br>
-                    - Votre "choix" d'accepter ou rejeter importe<br>
-                    - Il existe une vérité à découvrir<br>
-                    - La discussion rationnelle a un sens
+                    C'est l'Ouroboros épistémologique parfait :<br>
+                    <strong>La raison interrogeant la raison.</strong><br>
+                    <strong>La conscience cherchant la conscience.</strong><br>
+                    <strong>L'information s'informant sur l'information.</strong>
                 </p>
                 <div class="paradox-resolution">
-                    <h3>C'est l'Ouroboros épistémologique.</h3>
-                    <h3>La raison questionnant ses propres fondements.</h3>
-                    <h3>Le paradoxe vivant et auto-référentiel.</h3>
-                    <p class="meta-point">Et c'est <strong>exactement</strong> le point.</p>
+                    <h3>Nous ne pouvons pas sortir du cercle.</h3>
+                    <p class="meta-point">Et c'est exactement le point. L'humilité radicale face à l'inconnaissable.</p>
                 </div>
-                <p class="final-note">
-                    Nous ne pouvons pas sortir du cercle de la raison pour juger la raison. Nous ne pouvons pas utiliser la conscience pour prouver ou réfuter la conscience. Nous sommes prisonniers d'une boucle étrange.
-                </p>
-                <p class="final-note">
-                    La seule réponse honnête : <strong>l'humilité épistémologique radicale</strong>. Nous explorons, nous questionnons, nous doutons, mais nous ne prétendons jamais à la certitude absolue.
-                </p>
             </div>
         </div>
     </section>
@@ -448,43 +517,9 @@
     <!-- Contribuer -->
     <section id="contribuer" class="contribute">
         <div class="container">
-            <h2>Open Source Philosophique v2.0</h2>
-            <p class="contribute-intro">Cette version 2.0 ajoute des visualisations interactives. La prochaine version (v3.0) pourrait inclure...</p>
+            <h2>Open Source Philosophique v3.0</h2>
+            <p class="contribute-intro">Cette version ajoute expériences mentales, graphe 3D, pensées collectives, timeline et easter eggs.</p>
             
-            <div class="roadmap">
-                <h3>🗺️ Roadmap v3.0</h3>
-                <div class="roadmap-items">
-                    <div class="roadmap-item">
-                        <span class="roadmap-icon">🌍</span>
-                        <div>
-                            <h4>Traductions Multilingues</h4>
-                            <p>EN, ES, DE, JP</p>
-                        </div>
-                    </div>
-                    <div class="roadmap-item">
-                        <span class="roadmap-icon">🤖</span>
-                        <div>
-                            <h4>Chat IA Intégré</h4>
-                            <p>Discutez des concepts avec une IA</p>
-                        </div>
-                    </div>
-                    <div class="roadmap-item">
-                        <span class="roadmap-icon">📚</span>
-                        <div>
-                            <h4>Bibliothèque de Ressources</h4>
-                            <p>Papers, livres, vidéos organisés</p>
-                        </div>
-                    </div>
-                    <div class="roadmap-item">
-                        <span class="roadmap-icon">💬</span>
-                        <div>
-                            <h4>Forum de Discussion</h4>
-                            <p>Communauté pour débats philosophiques</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="github-link">
                 <a href="https://github.com/VeganFlemme/zero-equals-infinity" class="btn-primary" target="_blank" rel="noopener">
                     ⭐ Voir sur GitHub
@@ -498,16 +533,20 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>∅ = ∞ v2.0</h4>
-                    <p>Visualisations Interactives<br>Open Source Philosophique</p>
+                    <h4>∅ = ∞ v3.0</h4>
+                    <p>Expériences Mentales<br>Graphe 3D<br>Pensées Collectives<br>Easter Eggs</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Nouveautés v2.0</h4>
+                    <h4>Nouveautés v3.0</h4>
                     <ul>
-                        <li>5 visualisations interactives</li>
-                        <li>Axiomes affinés avec nuances</li>
-                        <li>6 concepts avancés détaillés</li>
-                        <li>Simulateur quantique</li>
+                        <li>Chat de Schrödinger interactif</li>
+                        <li>Paradoxe de Wigner</li>
+                        <li>Test EPR/Bell</li>
+                        <li>Chambre Chinoise</li>
+                        <li>Timeline quantique</li>
+                        <li>Graphe 3D Three.js</li>
+                        <li>Pensées collectives</li>
+                        <li>Easter eggs avancés</li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -521,12 +560,31 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>MIT License | Creative Commons BY-SA 4.0 | Fait avec curiosité et code</p>
+                <p>MIT License | Creative Commons BY-SA 4.0 | v3.0 - 2025</p>
             </div>
         </div>
     </footer>
 
+    <!-- Binary Mode Overlay (Easter Egg) -->
+    <div id="binaryOverlay" class="binary-overlay hidden"></div>
+
+    <!-- Hidden Fibonacci Section (Easter Egg) -->
+    <section id="fibonacci-secret" class="fibonacci-section hidden">
+        <div class="container">
+            <h2>🔢 Vous avez découvert le secret de Fibonacci</h2>
+            <p>La séquence 1, 1, 2, 3, 5, 8... L'ordre émerge du chaos mathématique.</p>
+            <p>Comme l'univers lui-même : lois simples, complexité émergente.</p>
+            <canvas id="fibonacciCanvas" width="600" height="400"></canvas>
+            <button class="btn-primary" id="closeFibonacci">Fermer</button>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
     <script src="visualizations.js"></script>
+    <script src="experiments.js"></script>
+    <script src="knowledge-graph.js"></script>
+    <script src="collective-thoughts.js"></script>
+    <script src="easter-eggs.js"></script>
 </body>
 </html>
