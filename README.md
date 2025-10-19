@@ -63,7 +63,8 @@ Puis ouvrez `http://localhost:8000` dans votre navigateur.
 2. **Aperçu** - Présentation de la philosophie du livre
 3. **Table des Matières** - Navigation rapide vers tous les chapitres
 4. **Chapitres** - Grille interactive de toutes les sections du livre
-5. **À Propos** - Information sur l'origine du livre
+5. **Téléchargements** - Accès direct aux documents PDF et Word du livre complet
+6. **À Propos** - Information sur l'origine du livre et les formats disponibles
 
 ## 🔍 Contenu Inclus
 
@@ -74,6 +75,13 @@ Puis ouvrez `http://localhost:8000` dans votre navigateur.
 - Partie I : Les Fondations Dimensionnelles (Chapitres 1-4)
 - Partie II : Preuves Quantiques (Chapitres 5-7)
 - Et bien plus... (58 sections au total)
+
+## 📥 Téléchargements
+
+Le livre complet est disponible en plusieurs formats :
+- **PDF** (1.5 MB) - Format portable, idéal pour lecture numérique
+- **DOCX** (424 KB) - Format Word éditable pour annotations
+- **En ligne** - Navigation interactive sur le site web
 
 ## 💡 Fonctionnalités Techniques
 
