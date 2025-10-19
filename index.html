@@ -579,6 +579,7 @@
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#apercu">Aperçu</a></li>
                 <li><a href="#chapitres">Chapitres</a></li>
+                <li><a href="#telechargements">Téléchargements</a></li>
                 <li><a href="#propos">À propos</a></li>
             </ul>
             <div class="burger" id="burger">
@@ -598,7 +599,10 @@
                 Une exploration profonde de la nature de la réalité, où le vide quantique rencontre l'infini manifeste.
                 Un voyage à travers les dimensions de l'existence, de la singularité informationnelle aux mondes multiples.
             </p>
-            <a href="#chapitres" class="cta-button">Commencer l'Exploration</a>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#chapitres" class="cta-button">Commencer l'Exploration</a>
+                <a href="#telechargements" class="cta-button" style="background: linear-gradient(135deg, var(--secondary), var(--accent));">Télécharger le Livre</a>
+            </div>
         </div>
         <div class="scroll-indicator">
             <span></span>
@@ -650,6 +654,62 @@
             </div>
         </section>
 
+        <!-- Téléchargements -->
+        <section class="section" id="telechargements">
+            <div class="section-header">
+                <h2 class="section-title">📥 Téléchargements</h2>
+                <p class="section-subtitle">Accédez au livre complet dans différents formats</p>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- PDF Download Card -->
+                    <div class="chapter-card" style="cursor: default;">
+                        <div class="chapter-number">PDF</div>
+                        <h3 class="chapter-title" style="margin-bottom: 1.5rem;">📄 Format PDF</h3>
+                        <p class="chapter-preview" style="margin-bottom: 1.5rem;">
+                            Document PDF complet avec toutes les sections, illustrations et mise en page professionnelle. 
+                            Idéal pour lecture sur liseuse ou impression.
+                        </p>
+                        <div style="margin-bottom: 1rem; font-size: 0.9rem; color: rgba(224, 231, 255, 0.6);">
+                            📊 Taille: 1.5 MB<br>
+                            📖 Pages: Intégralité du livre<br>
+                            🔧 Format: PDF portable
+                        </div>
+                        <a href="∅ = ∞ Complet V2.pdf" download class="cta-button" style="display: block; text-align: center; margin-top: 1rem; padding: 1rem 2rem; font-size: 1rem;">
+                            Télécharger PDF
+                        </a>
+                    </div>
+
+                    <!-- Word Download Card -->
+                    <div class="chapter-card" style="cursor: default;">
+                        <div class="chapter-number">DOC</div>
+                        <h3 class="chapter-title" style="margin-bottom: 1.5rem;">📝 Format Word</h3>
+                        <p class="chapter-preview" style="margin-bottom: 1.5rem;">
+                            Document Word éditable avec l'intégralité du contenu. 
+                            Parfait pour annotations personnelles et recherches textuelles.
+                        </p>
+                        <div style="margin-bottom: 1rem; font-size: 0.9rem; color: rgba(224, 231, 255, 0.6);">
+                            📊 Taille: 424 KB<br>
+                            📖 Pages: Intégralité du livre<br>
+                            🔧 Format: DOCX (Word)
+                        </div>
+                        <a href="∅ = ∞ Complet V2.docx" download class="cta-button" style="display: block; text-align: center; margin-top: 1rem; padding: 1rem 2rem; font-size: 1rem;">
+                            Télécharger Word
+                        </a>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05)); border-radius: 20px; padding: 2rem; text-align: center;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.5rem;">💡 Conseil de Lecture</h3>
+                    <p style="color: rgba(224, 231, 255, 0.8); line-height: 1.8;">
+                        Pour une expérience de lecture optimale, nous recommandons d'explorer d'abord le contenu en ligne 
+                        pour découvrir les chapitres qui vous intéressent, puis de télécharger le document complet 
+                        pour une lecture approfondie et des annotations personnelles.
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <!-- À propos -->
         <section class="section" id="propos">
             <div class="section-header">
@@ -669,6 +729,17 @@
                 <p style="text-align: center; font-style: italic; color: var(--primary); font-size: 1.2rem;">
                     —Un humain & Claude AI, 2025
                 </p>
+                <div style="margin-top: 3rem; padding: 2rem; background: rgba(102, 126, 234, 0.1); border-radius: 15px; border-left: 4px solid var(--primary);">
+                    <h3 style="color: var(--accent); margin-bottom: 1rem;">📚 Formats Disponibles</h3>
+                    <p style="margin-bottom: 0.5rem;">
+                        Ce livre est disponible sous plusieurs formats pour votre confort de lecture :
+                    </p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem;">🌐 <strong>En ligne</strong> : Navigation interactive sur ce site web</li>
+                        <li style="margin-bottom: 0.5rem;">📄 <strong>PDF</strong> : Document portable pour tous appareils</li>
+                        <li style="margin-bottom: 0.5rem;">📝 <strong>Word</strong> : Format éditable pour annotations</li>
+                    </ul>
+                </div>
             </div>
         </section>
     </div>
