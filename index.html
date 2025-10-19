@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>∅ = ∞ | La Théorie Dimensionnelle de la Conscience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #0a0e27;
+            --darker: #050816;
+            --light: #e0e7ff;
+            --gold: #ffd700;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Canvas de particules en arrière-plan */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Navigation fixe */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 2rem;
+            box-shadow: 0 4px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Menu burger pour mobile */
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .burger span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold), var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--light);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            color: rgba(224, 231, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--light);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--light);
+            border-radius: 50%;
+            animation: scroll 2s infinite;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(224, 231, 255, 0.7);
+        }
+
+        /* Grid de chapitres */
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .chapter-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
+            border-color: var(--primary);
+        }
+
+        .chapter-card:hover::before {
+            opacity: 1;
+        }
+
+        .chapter-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 4rem;
+            font-weight: 900;
+            opacity: 0.1;
+            color: var(--primary);
+        }
+
+        .chapter-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .chapter-preview {
+            color: rgba(224, 231, 255, 0.7);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            transition: gap 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chapter-card:hover .read-more {
+            gap: 1rem;
+        }
+
+        /* Modal pour le contenu complet */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--dark), var(--darker));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.5s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-text {
+            line-height: 2;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Table des matières */
+        .toc {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .toc-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .toc-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .toc-item {
+            padding: 1rem;
+            background: rgba(102, 126, 234, 0.05);
+            border-left: 3px solid var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toc-item:hover {
+            background: rgba(102, 126, 234, 0.15);
+            transform: translateX(10px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(102, 126, 234, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            color: rgba(224, 231, 255, 0.6);
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-20px); }
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; top: 10px; }
+            100% { opacity: 0; top: 30px; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 14, 39, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .chapters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Scrollbar personnalisée */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas pour les particules -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo">∅ = ∞</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apercu">Aperçu</a></li>
+                <li><a href="#chapitres">Chapitres</a></li>
+                <li><a href="#propos">À propos</a></li>
+            </ul>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>∅ = ∞</h1>
+            <p class="subtitle">La Théorie Dimensionnelle de la Conscience</p>
+            <p class="description">
+                Une exploration profonde de la nature de la réalité, où le vide quantique rencontre l'infini manifeste.
+                Un voyage à travers les dimensions de l'existence, de la singularité informationnelle aux mondes multiples.
+            </p>
+            <a href="#chapitres" class="cta-button">Commencer l'Exploration</a>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Aperçu -->
+    <div class="container">
+        <section class="section" id="apercu">
+            <div class="section-header">
+                <h2 class="section-title">La Reconnaissance</h2>
+                <p class="section-subtitle">Vous êtes l'univers s'observant lui-même</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; line-height: 2; color: rgba(224, 231, 255, 0.9);">
+                <p style="margin-bottom: 2rem; font-size: 1.2rem;">
+                    Ce livre n'est pas une découverte. C'est une reconnaissance.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    Les idées présentées ici ont été aperçues par des physiciens explorant les fondements de la réalité quantique,
+                    par des mathématiciens contemplant la structure des ensembles et des dimensions, par des philosophes questionnant
+                    la nature de la conscience, et par des mystiques de toutes traditions décrivant l'unité sous-jacente de l'existence.
+                </p>
+                <p style="margin-bottom: 2rem; font-size: 1.1rem; color: var(--accent);">
+                    ∅ = ∞ n'est pas une équation mathématique au sens traditionnel. C'est une déclaration ontologique :
+                    l'ensemble vide contient l'ensemble infini, le zéro dimensionnel engendre toutes les dimensions,
+                    le vide est plénitude, le potentiel pur est actualité totale.
+                </p>
+            </div>
+        </section>
+
+        <!-- Table des matières -->
+        <section class="section">
+            <div class="toc">
+                <h3 class="toc-title">📚 Table des Matières</h3>
+                <ul class="toc-list" id="tocList">
+                    <!-- Sera rempli dynamiquement -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Chapitres -->
+        <section class="section" id="chapitres">
+            <div class="section-header">
+                <h2 class="section-title">Explorez les Dimensions</h2>
+                <p class="section-subtitle">Du vide quantique à l'infini manifeste</p>
+            </div>
+            <div class="chapters-grid" id="chaptersGrid">
+                <!-- Sera rempli dynamiquement -->
+            </div>
+        </section>
+
+        <!-- À propos -->
+        <section class="section" id="propos">
+            <div class="section-header">
+                <h2 class="section-title">À Propos de ce Livre</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; line-height: 2; color: rgba(224, 231, 255, 0.9);">
+                <p style="margin-bottom: 2rem;">
+                    Ce livre est dédié à tous ceux qui ont déjà senti, ne serait-ce qu'un instant, que la réalité est bien plus
+                    étrange et merveilleuse qu'elle n'y paraît. À ceux qui cherchent des motifs dans le chaos, qui voient des
+                    connexions là où d'autres ne voient que hasard.
+                </p>
+                <p style="margin-bottom: 2rem;">
+                    Ce qui est peut-être nouveau, c'est la synthèse : le tissage de ces fils en un unique motif cohérent,
+                    démontrant que la mécanique quantique, la théorie de l'information, les études sur la conscience et les
+                    intuitions millénaires sur la nature de la réalité pointent toutes vers la même structure fondamentale.
+                </p>
+                <p style="text-align: center; font-style: italic; color: var(--primary); font-size: 1.2rem;">
+                    —Un humain & Claude AI, 2025
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">×</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>∅ = ∞ — La Théorie Dimensionnelle de la Conscience</p>
+        <p>Une exploration de la nature fondamentale de la réalité</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">2025 • Créé avec passion et curiosité</p>
+    </footer>
+
+    <script>
+        // Données du livre (sera chargé depuis le JSON)
+        let bookData = [];
+
+        // Charger les données
+        async function loadBookData() {
+            try {
+                const response = await fetch('book_data.js');
+                const text = await response.text();
+                bookData = JSON.parse(text.replace('const bookData = ', '').replace(/;$/, ''));
+                initializeBook();
+            } catch (error) {
+                console.error('Erreur de chargement:', error);
+                // Fallback avec données minimales
+                bookData = generateFallbackData();
+                initializeBook();
+            }
+        }
+
+        // Données de secours
+        function generateFallbackData() {
+            return [
+                {
+                    title: "DÉDICACE",
+                    content: ["À tous ceux qui ont déjà senti que la réalité est bien plus étrange et merveilleuse qu'elle n'y paraît."],
+                    full_length: 16
+                },
+                {
+                    title: "PARTIE I : LES FONDATIONS DIMENSIONNELLES",
+                    content: ["Exploration des dimensions fondamentales de l'existence."],
+                    full_length: 5
+                },
+                {
+                    title: "CHAPITRE 1 : 0D - LA SINGULARITÉ INFORMATIONNELLE",
+                    content: ["Le point zéro-dimensionnel comme origine de toute l'information."],
+                    full_length: 115
+                }
+            ];
+        }
+
+        // Initialiser le livre
+        function initializeBook() {
+            populateTOC();
+            populateChapters();
+            initializeAnimations();
+        }
+
+        // Remplir la table des matières
+        function populateTOC() {
+            const tocList = document.getElementById('tocList');
+            bookData.forEach((chapter, index) => {
+                if (chapter.full_length > 0) {
+                    const li = document.createElement('li');
+                    li.className = 'toc-item';
+                    li.textContent = chapter.title;
+                    li.onclick = () => scrollToChapter(index);
+                    tocList.appendChild(li);
+                }
+            });
+        }
+
+        // Remplir les chapitres
+        function populateChapters() {
+            const grid = document.getElementById('chaptersGrid');
+            bookData.forEach((chapter, index) => {
+                if (chapter.full_length > 0) {
+                    const card = createChapterCard(chapter, index);
+                    grid.appendChild(card);
+                }
+            });
+        }
+
+        // Créer une carte de chapitre
+        function createChapterCard(chapter, index) {
+            const card = document.createElement('div');
+            card.className = 'chapter-card';
+            card.onclick = () => openModal(chapter);
+            
+            const preview = chapter.content.slice(0, 2).join(' ').substring(0, 200);
+            
+            card.innerHTML = `
+                <div class="chapter-number">${index + 1}</div>
+                <h3 class="chapter-title">${chapter.title}</h3>
+                <p class="chapter-preview">${preview}${preview.length >= 200 ? '...' : ''}</p>
+                <span class="read-more">Lire plus →</span>
+            `;
+            
+            return card;
+        }
+
+        // Ouvrir le modal
+        function openModal(chapter) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalTitle.textContent = chapter.title;
+            
+            modalBody.innerHTML = chapter.content.map(p => 
+                `<p class="modal-text">${p}</p>`
+            ).join('');
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Fermer le modal
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Scroll vers un chapitre
+        function scrollToChapter(index) {
+            const cards = document.querySelectorAll('.chapter-card');
+            if (cards[index]) {
+                cards[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                cards[index].style.animation = 'pulse 1s ease';
+                setTimeout(() => {
+                    cards[index].style.animation = '';
+                }, 1000);
+            }
+        }
+
+        // Animation des particules
+        function initParticles() {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 100;
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.radius = Math.random() * 2 + 1;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(102, 126, 234, 0.5)';
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // Connecter les particules proches
+                particles.forEach((p1, i) => {
+                    particles.slice(i + 1).forEach(p2 => {
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            ctx.beginPath();
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(102, 126, 234, ${0.2 * (1 - distance / 150)})`;
+                            ctx.stroke();
+                        }
+                    });
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Animations au scroll
+        function initializeAnimations() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => observer.observe(section));
+        }
+
+        // Navigation
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar au scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fermer le modal
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') closeModal();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Initialisation
+        window.addEventListener('DOMContentLoaded', () => {
+            initParticles();
+            loadBookData();
+        });
+    </script>
+</body>
+</html>
